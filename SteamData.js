@@ -57,11 +57,11 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
 
 
-    var dimensions = {
-        width: 1500,
+    dimensions = {
+        width: 15000,
         height: 800,
         margin: {
-            top: 100,
+            top: 50,
             bottom: 50,
             right: 10,
             left: 50
@@ -72,15 +72,16 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
-
+    var names = dataset.map(d => d.Name)
+    
     var xScale = d3.scaleBand()
-        .domain(d => d.Name) 
+        .domain(names) 
         .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
         .padding(0.2)
 
 
     var yScale = d3.scaleLinear()
-        .domain([0, 44000])
+        .domain([0, 1000000])
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
 
@@ -89,9 +90,9 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .enter()
         .append("rect")
         .attr("x", d => xScale(d.Name))
-        .attr("y", d => yScale(d.TotalNumberReviews))
+        .attr("y", d => yScale(d.TNRAT))
         .attr("width", xScale.bandwidth())
-        .attr("height", d => dimensions.height - dimensions.margin.top - yScale(d.Amanda))
+        .attr("height", d => dimensions.height - dimensions.margin.top - yScale(d.TNRAT))
         .attr("fill", "#FF007F");
 
 
@@ -104,7 +105,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
         .selectAll("text")
         .attr("y", 0)
-        .attr("x", -20)
+        .attr("x", -100)
         .attr("transform", "rotate(-65)")
 
 
