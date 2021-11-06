@@ -55,8 +55,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
     console.log(dataset)
 
-
-
+    //barchart template
     dimensions = {
         width: 15000,
         height: 800,
@@ -105,8 +104,9 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
         .selectAll("text")
         .attr("y", 0)
-        .attr("x", -100)
+        .attr("x", -10)
         .attr("transform", "rotate(-65)")
+        .style("font-size", "8px")
 
 
     var yAxis = svg.append("g")
@@ -121,6 +121,76 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("font-size", "24px") 
         .style("text-decoration", "underline")  
         .text("Steam Bar Graph");
+
+    
+    //forces template
+    var svg = d3.select("#forces")
+        .style("width", width)
+        .style("height", height)
+
+    var layout = d3.forceSimulation(/* */)
+        .force('center', d3.forceCenter(width/2, height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {
+          return /* */
+        }))
+        .on('tick', ticked)
+
+    let node = svg.append("g")
+        .selectAll("circle")
+        .data(/* */).enter()
+        .append("circle")
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr("fill", "black")
+        .attr("opacity", 0.4)
+        .attr("r", d => d.r)
+      
+    function ticked(){
+        svg.selectAll("circle")
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+    }
+
+    //heatmap template
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+    var x = d3.scaleBand()
+        .range([ 0, width ])
+        .domain(/* */)
+        .padding(0.01)
+
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+      
+    
+    var y = d3.scaleBand()
+        .range([height, 0])
+        .domain(/* */)
+        .padding(0.01)
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+      
+    
+    var myColor = d3.scaleLinear()
+        .range(["white", "#69b3a2"])
+        .domain([1,100])
+
+    // svg.selectAll()
+    //     .data(data, function(d) {return d.group+':'+d.variable;})
+    //     .enter()
+    //     .append("rect")
+    //     .attr("x", function(d) { return x(d.group) })
+    //     .attr("y", function(d) { return y(d.variable) })
+    //     .attr("width", x.bandwidth() )
+    //     .attr("height", y.bandwidth() )
+    //     .style("fill", function(d) { return myColor(d.value)} )
 })
 
     
