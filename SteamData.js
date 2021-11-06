@@ -105,8 +105,9 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
         .selectAll("text")
         .attr("y", 0)
-        .attr("x", -100)
+        .attr("x", -10)
         .attr("transform", "rotate(-65)")
+        .style("font-size", "8px")
 
 
     var yAxis = svg.append("g")
@@ -121,6 +122,36 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("font-size", "24px") 
         .style("text-decoration", "underline")  
         .text("Steam Bar Graph");
+
+    
+    //next graph
+    var svg = d3.select("#forces")
+        .style("width", width)
+        .style("height", height)
+
+    var layout = d3.forceSimulation(/* */)
+        .force('center', d3.forceCenter(width/2, height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {
+          return /* */
+        }))
+        .on('tick', ticked)
+
+    let node = svg.append("g")
+        .selectAll("circle")
+        .data(/* */).enter()
+        .append("circle")
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr("fill", "black")
+        .attr("opacity", 0.4)
+        .attr("r", d => d.r)
+      
+    function ticked(){
+        svg.selectAll("circle")
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+    }
+
 })
 
     
