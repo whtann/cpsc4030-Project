@@ -13,9 +13,17 @@
             <p>A website created by Jake Badger, Ryan Goldin, and William Tann</p>
         </div>
 
-        <svg id="scatterplot"></svg>
-        <svg id="barchart"></svg>
+        <div class="graphButtons" style="width:100%">
+            <button id="sp-btn" style="width:25%" onclick="switchVisible('sp');">Scatterplot</button>
+            <button id="bc-btn" style="width:25%" onclick="switchVisible('bar');">Bar Chart</button>
+        </div>
 
+        <div class="data">
+            <svg id="scatterplot"></svg>
+            <svg id="barchart"></svg>
+        </div>
+
+        <script src="svgswap.js"></script>
         <script src="SteamData.js"></script>
     </body>
 </html>
