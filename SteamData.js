@@ -55,8 +55,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
     console.log(dataset)
 
-
-
+    //barchart template
     dimensions = {
         width: 15000,
         height: 800,
@@ -124,7 +123,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .text("Steam Bar Graph");
 
     
-    //next graph
+    //forces template
     var svg = d3.select("#forces")
         .style("width", width)
         .style("height", height)
@@ -152,6 +151,46 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
             .attr('cy', d => d.y)
     }
 
+    //heatmap template
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+    var x = d3.scaleBand()
+        .range([ 0, width ])
+        .domain(/* */)
+        .padding(0.01)
+
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+      
+    
+    var y = d3.scaleBand()
+        .range([height, 0])
+        .domain(/* */)
+        .padding(0.01)
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+      
+    
+    var myColor = d3.scaleLinear()
+        .range(["white", "#69b3a2"])
+        .domain([1,100])
+
+    // svg.selectAll()
+    //     .data(data, function(d) {return d.group+':'+d.variable;})
+    //     .enter()
+    //     .append("rect")
+    //     .attr("x", function(d) { return x(d.group) })
+    //     .attr("y", function(d) { return y(d.variable) })
+    //     .attr("width", x.bandwidth() )
+    //     .attr("height", y.bandwidth() )
+    //     .style("fill", function(d) { return myColor(d.value)} )
 })
 
     
