@@ -149,6 +149,13 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         }
     }
 
+    var colors = dataset.map(d => d.Name)
+    console.log(colors)
+    
+    var color = d3.scaleOrdinal()
+        .domain(colors)
+        .range(d3.schemeCategory10)
+
     var svg = d3.select("#barchart")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
@@ -169,7 +176,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .append("circle")
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
-        .attr("fill", "black")
+        .attr("fill", d => color(d.Developer))
         .attr("opacity", 0.4)
         .attr("r", d => d.TNRAT)
       
