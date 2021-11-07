@@ -1,8 +1,6 @@
 //scatterplot template
 d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
-    console.log(dataset)
-
     var dimensions = {
         width: 1500,
         height: 800,
@@ -31,7 +29,6 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
     var colors = dataset.map(d => d.Name)
-    console.log(colors)
     
     var color = d3.scaleOrdinal()
         .domain(colors)
@@ -57,13 +54,10 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .call(yAxisgen)
         .style("transform", `translateX(${dimensions.margin.left}px)`)
 
-    console.log(dataset)
 })
 
 //barchart template
 d3.csv("SteamGames_Test.csv").then(function(dataset) {
-
-    console.log(dataset)
 
     dimensions = {
         width: 50000,
@@ -76,7 +70,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         }
     }
 
-    var svg = d3.select("#barchart1")
+    var svg = d3.select("#barchart")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
@@ -156,11 +150,16 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .domain(colors)
         .range(d3.schemeCategory10)
 
-    var svg = d3.select("#barchart")
+    var svg = d3.select("#barchart1")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
-    var nodes = dataset.map(d => d.ID)
+    var nodes = dataset.map(function(d) {
+        return {
+            Developer: d.Developer,
+            ID: d.ID
+        }
+    });
     console.log(nodes)
 
     var layout = d3.forceSimulation(nodes)
