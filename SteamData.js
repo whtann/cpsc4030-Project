@@ -160,7 +160,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
-    var nodes = dataset.map(d => d.Developer)
+    var nodes = dataset.map(d => d.ID)
     console.log(nodes)
 
     var layout = d3.forceSimulation(nodes)
