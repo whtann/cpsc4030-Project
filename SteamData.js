@@ -157,33 +157,34 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var nodes = dataset.map(function(d) {
         return {
-            Total: d.TNRATRev,
-            ID: d.ID
+            r: d.TNRATRev,
+            index: d.ID
         }
     });
 
     console.log(nodes)
 
-    // var layout = d3.forceSimulation(nodes)
-    //     .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
-    //     .force('collisions', d3.forceCollide().radius(0)) //function(d) {return d.TNRAT}))
-    //     .on('tick', ticked)
+    var layout = d3.forceSimulation(nodes)
+        .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {return d.TNRATRev}))
+        //.force('charge', d3.forceManyBody().strength(30))
+        .on('tick', ticked)
 
-    let node = svg.append("g")
+    var node = svg.append("g")
         .selectAll("circle")
         .data(nodes).enter()
         .append("circle")
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
-        .attr("fill", d => color(nodes.ID))
+        .attr("fill", d => color(d.ID))
         .attr("opacity", 1)
         .attr("r", d => d.TNRATRev)
       
-    // function ticked(){
-    //     svg.selectAll("circle")
-    //         .attr('cx', d => d.x)
-    //         .attr('cy', d => d.y)
-    // }
+    function ticked(){
+        svg.selectAll("circle")
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+    }
 })
 
 //second barchart
