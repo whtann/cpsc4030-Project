@@ -153,16 +153,18 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("width", width)
         .style("height", height)
 
-    var layout = d3.forceSimulation(/* */)
+    var nodes = dataset.map(d => d.developer)
+
+    var layout = d3.forceSimulation(nodes)
         .force('center', d3.forceCenter(width/2, height/2))
         .force('collisions', d3.forceCollide().radius(function(d) {
-          return /* */
+          return d.TNRAT
         }))
         .on('tick', ticked)
 
     let node = svg.append("g")
         .selectAll("circle")
-        .data(/* */).enter()
+        .data(nodes).enter()
         .append("circle")
         .attr('cx', d => d.x)
         .attr('cy', d => d.y)
@@ -234,4 +236,62 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
     //     .style("fill", function(d) { return myColor(d.value)} )
 })
 
+//I want to try something here
+d3.csv("SteamGames_Test.csv").then(function(dataset) {
+
+    console.log(dataset)
+
+    var dimensions = {
+        width: 1500,
+        height: 800,
+        margin: {
+            top: 10,
+            bottom: 50,
+            right: 10,
+            left: 50
+        }
+    }
+
+    var svg = d3.select("#bubblechart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var x = d3.scaleLinear()
+        .domain([0, 45000])
+        .range([ 0, width]);
     
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(3));
+
+    var y = d3.scaleLinear()
+        .domain([35, 90])
+        .range([ height, 0]);
+    
+    svg.append("g")
+        .call(d3.axisLeft(y));
+
+    var z = d3.scaleSqrt()
+        .domain([200000, 1310000000])
+        .range([2, 30]);
+
+    var colors = dataset.map(d => d.TNRAT)
+    var nodes = dataset.map(d => d.PerPosRevAT)
+
+    var color = d3.scaleOrdinal()
+        .domain(colors)
+        .range(d3.schemeCategory10);
+
+    svg.append('g')
+        .selectAll("dot")
+        .data(nodes)
+        .enter()
+        .append("circle")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", 10)
+        .style("fill", d => color(d.Developer))
+})    
