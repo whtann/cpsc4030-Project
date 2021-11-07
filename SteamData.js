@@ -1,4 +1,4 @@
-d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
+d3.csv("SteamGames_Fixed.csv").then(function(dataset) {
 
     console.log(dataset)
 
@@ -28,10 +28,12 @@ d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
     var yScale = d3.scaleLinear()
         .domain(d3.extent(dataset, yAccessor)) 
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+    var colors = d => d.Genre
     
-    // var color = d3.scaleOrdinal()
-    //     .domain()
-    //     .range(d3.schemeCategory10)
+    var color = d3.scaleOrdinal()
+        .domain(colors)
+        .range(d3.schemeCategory10)
 
     var dots = svg.selectAll("circle")
         .data(dataset)
@@ -39,7 +41,7 @@ d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
         .append("circle")
         .attr("cx", d => xScale(xAccessor(d)))
         .attr("cy", d => yScale(yAccessor(d)))
-        .attr("fill", "red")
+        .attr("fill", d => color(d[0]))
         .attr("r", 3)
 
     var xAxisgen = d3.axisBottom().scale(xScale)
