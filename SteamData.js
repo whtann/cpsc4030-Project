@@ -76,7 +76,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         }
     }
 
-    var svg = d3.select("#barchart")
+    var svg = d3.select("#barchart1")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
@@ -149,14 +149,15 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         }
     }
 
-    var svg = d3.select("#forces")
-        .style("width", width)
-        .style("height", height)
+    var svg = d3.select("#barchart")
+        .style("width", dimensions.width)
+        .style("height", dimensions.height)
 
-    var nodes = dataset.map(d => d.developer)
+    var nodes = dataset.map(d => d.Developer)
+    console.log(nodes)
 
     var layout = d3.forceSimulation(nodes)
-        .force('center', d3.forceCenter(width/2, height/2))
+        .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
         .force('collisions', d3.forceCollide().radius(function(d) {
           return d.TNRAT
         }))
@@ -170,7 +171,7 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .attr('cy', d => d.y)
         .attr("fill", "black")
         .attr("opacity", 0.4)
-        .attr("r", d => d.r)
+        .attr("r", d => d.TNRAT)
       
     function ticked(){
         svg.selectAll("circle")
@@ -180,118 +181,180 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
 })
 
 //heatmap template
-d3.csv("SteamGames_Test.csv").then(function(dataset) {
+// d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
-    console.log(dataset)
+//     console.log(dataset)
 
-    var dimensions = {
-        width: 1500,
-        height: 800,
-        margin: {
-            top: 10,
-            bottom: 50,
-            right: 10,
-            left: 50
-        }
-    }
+//     var dimensions = {
+//         width: 1500,
+//         height: 800,
+//         margin: {
+//             top: 10,
+//             bottom: 50,
+//             right: 10,
+//             left: 50
+//         }
+//     }
 
-    var svg = d3.select("#my_dataviz")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+//     var svg = d3.select("#my_dataviz")
+//         .append("svg")
+//         .attr("width", width + margin.left + margin.right)
+//         .attr("height", height + margin.top + margin.bottom)
+//         .append("g")
+//         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-    var x = d3.scaleBand()
-        .range([ 0, width ])
-        .domain(/* */)
-        .padding(0.01)
+//     var x = d3.scaleBand()
+//         .range([ 0, width ])
+//         .domain(/* */)
+//         .padding(0.01)
 
-    svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
+//     svg.append("g")
+//         .attr("transform", "translate(0," + height + ")")
+//         .call(d3.axisBottom(x))
       
     
-    var y = d3.scaleBand()
-        .range([height, 0])
-        .domain(/* */)
-        .padding(0.01)
+//     var y = d3.scaleBand()
+//         .range([height, 0])
+//         .domain(/* */)
+//         .padding(0.01)
 
-    svg.append("g")
-        .call(d3.axisLeft(y));
+//     svg.append("g")
+//         .call(d3.axisLeft(y));
       
     
-    var myColor = d3.scaleLinear()
-        .range(["white", "#69b3a2"])
-        .domain([1,100])
+//     var myColor = d3.scaleLinear()
+//         .range(["white", "#69b3a2"])
+//         .domain([1,100])
 
-    // svg.selectAll()
-    //     .data(data, function(d) {return d.group+':'+d.variable;})
-    //     .enter()
-    //     .append("rect")
-    //     .attr("x", function(d) { return x(d.group) })
-    //     .attr("y", function(d) { return y(d.variable) })
-    //     .attr("width", x.bandwidth() )
-    //     .attr("height", y.bandwidth() )
-    //     .style("fill", function(d) { return myColor(d.value)} )
-})
+//     // svg.selectAll()
+//     //     .data(data, function(d) {return d.group+':'+d.variable;})
+//     //     .enter()
+//     //     .append("rect")
+//     //     .attr("x", function(d) { return x(d.group) })
+//     //     .attr("y", function(d) { return y(d.variable) })
+//     //     .attr("width", x.bandwidth() )
+//     //     .attr("height", y.bandwidth() )
+//     //     .style("fill", function(d) { return myColor(d.value)} )
+// })
 
-//I want to try something here
-d3.csv("SteamGames_Test.csv").then(function(dataset) {
+// //I want to try something here
+// d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
-    console.log(dataset)
+//     console.log(dataset)
 
-    var dimensions = {
-        width: 1500,
-        height: 800,
-        margin: {
-            top: 10,
-            bottom: 50,
-            right: 10,
-            left: 50
-        }
-    }
+//     var dimensions = {
+//         width: 1500,
+//         height: 800,
+//         margin: {
+//             top: 10,
+//             bottom: 50,
+//             right: 10,
+//             left: 50
+//         }
+//     }
 
-    var svg = d3.select("#bubblechart")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//     var svg = d3.select("#bubblechart")
+//         .append("svg")
+//         .attr("width", width + margin.left + margin.right)
+//         .attr("height", height + margin.top + margin.bottom)
+//         .append("g")
+//         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var x = d3.scaleLinear()
-        .domain([0, 45000])
-        .range([ 0, width]);
+//     var x = d3.scaleLinear()
+//         .domain([0, 45000])
+//         .range([ 0, width]);
     
-    svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).ticks(3));
+//     svg.append("g")
+//         .attr("transform", "translate(0," + height + ")")
+//         .call(d3.axisBottom(x).ticks(3));
 
-    var y = d3.scaleLinear()
-        .domain([35, 90])
-        .range([ height, 0]);
+//     var y = d3.scaleLinear()
+//         .domain([35, 90])
+//         .range([ height, 0]);
     
-    svg.append("g")
-        .call(d3.axisLeft(y));
+//     svg.append("g")
+//         .call(d3.axisLeft(y));
 
-    var z = d3.scaleSqrt()
-        .domain([200000, 1310000000])
-        .range([2, 30]);
+//     var z = d3.scaleSqrt()
+//         .domain([200000, 1310000000])
+//         .range([2, 30]);
 
-    var colors = dataset.map(d => d.TNRAT)
-    var nodes = dataset.map(d => d.PerPosRevAT)
+//     var colors = dataset.map(d => d.TNRAT)
+//     var nodes = dataset.map(d => d.PerPosRevAT)
 
-    var color = d3.scaleOrdinal()
-        .domain(colors)
-        .range(d3.schemeCategory10);
+//     var color = d3.scaleOrdinal()
+//         .domain(colors)
+//         .range(d3.schemeCategory10);
 
-    svg.append('g')
-        .selectAll("dot")
-        .data(nodes)
-        .enter()
-        .append("circle")
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y)
-        .attr("r", 10)
-        .style("fill", d => color(d.Developer))
-})    
+//     svg.append('g')
+//         .selectAll("dot")
+//         .data(nodes)
+//         .enter()
+//         .append("circle")
+//         .attr("cx", d => d.x)
+//         .attr("cy", d => d.y)
+//         .attr("r", 10)
+//         .style("fill", d => color(d.Developer))
+// })
+
+// //Memory Size and Price
+// d3.csv("SteamGames_Test.csv").then(function(dataset) {
+
+//     console.log(dataset)
+
+//     var dimensions = {
+//         width: 1500,
+//         height: 800,
+//         margin: {
+//             top: 10,
+//             bottom: 50,
+//             right: 10,
+//             left: 50
+//         }
+//     }
+
+//     var svg = d3.select("#scatterplot2")
+//         .style("width", dimensions.width)
+//         .style("height", dimensions.height)
+
+//     var xAccessor = d => d.Price
+//     var yAccessor = d => d.Storage
+//     var xAccessorNew = d => d.Name
+
+//     var xScale = d3.scaleLinear()
+//         .domain(d3.extent(dataset, xAccessor))
+//         .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
+
+//     var yScale = d3.scaleLinear()
+//         .domain(d3.extent(dataset, yAccessor)) 
+//         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+//     var colors = dataset.map(d => d.Name)
+//     console.log(colors)
+    
+//     var color = d3.scaleOrdinal()
+//         .domain(colors)
+//         .range(d3.schemeCategory10)
+
+//     var dots = svg.selectAll("circle")
+//         .data(dataset)
+//         .enter()
+//         .append("circle")
+//         .attr("cx", d => xScale(xAccessor(d)))
+//         .attr("cy", d => yScale(yAccessor(d)))
+//         .attr("fill", d => color(d.Genre))
+//         .attr("r", 3)
+
+//     var xAxisgen = d3.axisBottom().scale(xScale)
+//     var yAxisgen = d3.axisLeft().scale(yScale)
+
+//     var xAxis = svg.append("g")
+//         .call(xAxisgen)
+//         .style("Transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`)
+
+//     var yAxis = svg.append("g")
+//         .call(yAxisgen)
+//         .style("transform", `translateX(${dimensions.margin.left}px)`)
+
+//     console.log(dataset)
+// })
