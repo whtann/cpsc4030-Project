@@ -57,7 +57,7 @@ d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
 
     //barchart template
     dimensions = {
-        width: 15000,
+        width: 50000,
         height: 800,
         margin: {
             top: 50,
@@ -104,9 +104,9 @@ d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
         .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
         .selectAll("text")
         .attr("y", 0)
-        .attr("x", -10)
+        .attr("x", "-15em")
         .attr("transform", "rotate(-65)")
-        .style("font-size", "8px")
+        .style("font-size", "6px")
 
 
     var yAxis = svg.append("g")
