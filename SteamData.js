@@ -136,7 +136,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var dimensions = {
         width: 1500,
-        height: 800,
+        height: 1000,
         margin: {
             top: 10,
             bottom: 50,
@@ -146,7 +146,6 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     }
 
     var colors = dataset.map(d => d.Name)
-    console.log(colors)
     
     var color = d3.scaleOrdinal()
         .domain(colors)
@@ -158,28 +157,25 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var nodes = dataset.map(function(d) {
         return {
-            Developer: d.Developer,
-            //ID: d.ID
+            Total: d.TNRAT,
+            ID: d.ID
         }
     });
-    console.log(nodes)
 
     var layout = d3.forceSimulation(nodes)
         .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
-        .force('collisions', d3.forceCollide().radius(function(d) {
-          return d.TNRAT
-        }))
+        .force('collisions', d3.forceCollide().radius(0)) //function(d) {return d.TNRAT}))
         .on('tick', ticked)
 
     let node = svg.append("g")
         .selectAll("circle")
         .data(nodes).enter()
         .append("circle")
-        .attr('cx', d => d.x)
-        .attr('cy', d => d.y)
+        // .attr('cx', d => d.x)
+        // .attr('cy', d => d.y)
         .attr("fill", d => color(d.Developer))
-        .attr("opacity", 0.4)
-        .attr("r", d => d.TNRAT)
+        .attr("opacity", 1)
+        .attr("r", nodes.Total)
       
     function ticked(){
         svg.selectAll("circle")
@@ -187,6 +183,80 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
             .attr('cy', d => d.y)
     }
 })
+
+//second barchart
+function barchart2() {
+    //barchart template
+    d3.csv("SteamGames_New.csv").then(function(dataset) {
+
+        dimensions = {
+            width: 50000,
+            height: 800,
+            margin: {
+                top: 50,
+                bottom: 50,
+                right: 10,
+                left: 50
+            }
+        }
+
+        var svg = d3.select("#barchart")
+            .style("width", dimensions.width)
+            .style("height", dimensions.height)
+
+        var genres = dataset.map(d => d.Genre)
+        
+        var xScale = d3.scaleBand()
+            .domain(genres) 
+            .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
+            .padding(0.2)
+
+
+        var yScale = d3.scaleLinear()
+            .domain([0, 100000])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+
+        var dots = svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", d => xScale(d.Genre))
+            .attr("y", d => yScale(d.TNRAT))
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => dimensions.height - dimensions.margin.top - yScale(d.TNRAT))
+            .attr("fill", "#FF007F");
+
+
+        var xAxisgen = d3.axisBottom().scale(xScale)
+        var yAxisgen = d3.axisLeft().scale(yScale)
+
+
+        var xAxis = svg.append("g")
+            .call(xAxisgen)
+            .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
+            .selectAll("text")
+            .attr("y", 0)
+            .attr("x", "-15em")
+            .attr("transform", "rotate(-65)")
+            .style("font-size", "6px")
+
+
+        var yAxis = svg.append("g")
+            .call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+
+
+        svg.append("text")
+            .attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Steam Bar Graph");
+
+    })
+}
 
 // //heatmap template
 // d3.csv("SteamGames_New.csv").then(function(dataset) {
