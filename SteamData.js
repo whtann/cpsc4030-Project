@@ -1,4 +1,4 @@
-d3.csv("SteamGames_Test.csv").then(function(dataset) {
+d3.csv("SteamGames_ScatterPlot.csv").then(function(dataset) {
 
     console.log(dataset)
 
