@@ -1,4 +1,4 @@
-d3.csv("SteamGames_Fixed.csv").then(function(dataset) {
+d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
     console.log(dataset)
 
@@ -29,7 +29,8 @@ d3.csv("SteamGames_Fixed.csv").then(function(dataset) {
         .domain(d3.extent(dataset, yAccessor)) 
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
-    var colors = d => d.Genre
+    var colors = dataset.map(d => d.Name)
+    console.log(colors)
     
     var color = d3.scaleOrdinal()
         .domain(colors)
@@ -41,7 +42,7 @@ d3.csv("SteamGames_Fixed.csv").then(function(dataset) {
         .append("circle")
         .attr("cx", d => xScale(xAccessor(d)))
         .attr("cy", d => yScale(yAccessor(d)))
-        .attr("fill", d => color(d[0]))
+        .attr("fill", d => color(d.Genre))
         .attr("r", 3)
 
     var xAxisgen = d3.axisBottom().scale(xScale)
@@ -82,7 +83,7 @@ d3.csv("SteamGames_Fixed.csv").then(function(dataset) {
 
 
     var yScale = d3.scaleLinear()
-        .domain([0, 1000000])
+        .domain([0, 100000])
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
 
