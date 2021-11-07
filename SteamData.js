@@ -1,3 +1,4 @@
+//scatterplot template
 d3.csv("SteamGames_Test.csv").then(function(dataset) {
 
     console.log(dataset)
@@ -57,8 +58,13 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("transform", `translateX(${dimensions.margin.left}px)`)
 
     console.log(dataset)
+})
 
-    //barchart template
+//barchart template
+d3.csv("SteamGames_Test.csv").then(function(dataset) {
+
+    console.log(dataset)
+
     dimensions = {
         width: 50000,
         height: 800,
@@ -125,8 +131,24 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
         .style("text-decoration", "underline")  
         .text("Steam Bar Graph");
 
-    
-    //forces template
+})
+
+//forces template
+d3.csv("SteamGames_Test.csv").then(function(dataset) {
+
+    console.log(dataset)
+
+    var dimensions = {
+        width: 1500,
+        height: 800,
+        margin: {
+            top: 10,
+            bottom: 50,
+            right: 10,
+            left: 50
+        }
+    }
+
     var svg = d3.select("#forces")
         .style("width", width)
         .style("height", height)
@@ -153,8 +175,24 @@ d3.csv("SteamGames_Test.csv").then(function(dataset) {
             .attr('cx', d => d.x)
             .attr('cy', d => d.y)
     }
+})
 
-    //heatmap template
+//heatmap template
+d3.csv("SteamGames_Test.csv").then(function(dataset) {
+
+    console.log(dataset)
+
+    var dimensions = {
+        width: 1500,
+        height: 800,
+        margin: {
+            top: 10,
+            bottom: 50,
+            right: 10,
+            left: 50
+        }
+    }
+
     var svg = d3.select("#my_dataviz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
