@@ -13,7 +13,7 @@ function scatterplot() {
             }
         }
 
-        var svg = d3.select("#scatterplot")
+        var svg = d3.select("#scatterplot1")
             .style("width", dimensions.width)
             .style("height", dimensions.height)
 
@@ -131,64 +131,62 @@ function barchart() {
     })
 }
 
-// //forces template
-// d3.csv("SteamGames_New.csv").then(function(dataset) {
+//forces template
+d3.csv("SteamGames_New.csv").then(function(dataset) {
 
-//     console.log(dataset)
+    var dimensions = {
+        width: 1500,
+        height: 800,
+        margin: {
+            top: 10,
+            bottom: 50,
+            right: 10,
+            left: 50
+        }
+    }
 
-//     var dimensions = {
-//         width: 1500,
-//         height: 800,
-//         margin: {
-//             top: 10,
-//             bottom: 50,
-//             right: 10,
-//             left: 50
-//         }
-//     }
-
-//     var colors = dataset.map(d => d.Name)
-//     console.log(colors)
+    var colors = dataset.map(d => d.Name)
+    console.log(colors)
     
-//     var color = d3.scaleOrdinal()
-//         .domain(colors)
-//         .range(d3.schemeCategory10)
+    var color = d3.scaleOrdinal()
+        .domain(colors)
+        .range(d3.schemeCategory10)
 
-//     var svg = d3.select("#barchart1")
-//         .style("width", dimensions.width)
-//         .style("height", dimensions.height)
+    var svg = d3.select("#scatterplot")
+        .style("width", dimensions.width)
+        .style("height", dimensions.height)
 
-//     var nodes = dataset.map(function(d) {
-//         return {
-//             Developer: d.Developer,
-//             ID: d.ID
-//         }
-//     });
-//     console.log(nodes)
+    var nodes = dataset.map(function(d) {
+        return {
+            Developer: d.Developer,
+            //ID: d.ID
+        }
+    });
+    console.log(nodes)
 
-//     var layout = d3.forceSimulation(nodes)
-//         .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
-//         .force('collisions', d3.forceCollide().radius(function(d) {
-//           return d.TNRAT
-//         }))
-//         .on('tick', ticked)
+    var layout = d3.forceSimulation(nodes)
+        .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {
+          return d.TNRAT
+        }))
+        .on('tick', ticked)
 
-//     let node = svg.append("g")
-//         .selectAll("circle")
-//         .data(nodes).enter()
-//         .append("circle")
-//         .attr('cx', d => d.x)
-//         .attr('cy', d => d.y)
-//         .attr("fill", d => color(d.Developer))
-//         .attr("opacity", 0.4)
-//         .attr("r", d => d.TNRAT)
+    let node = svg.append("g")
+        .selectAll("circle")
+        .data(nodes).enter()
+        .append("circle")
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr("fill", d => color(d.Developer))
+        .attr("opacity", 0.4)
+        .attr("r", d => d.TNRAT)
       
-//     function ticked(){
-//         svg.selectAll("circle")
-//             .attr('cx', d => d.x)
-//             .attr('cy', d => d.y)
-//     }
-// })
+    function ticked(){
+        svg.selectAll("circle")
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+    }
+})
 
 // //heatmap template
 // d3.csv("SteamGames_New.csv").then(function(dataset) {
