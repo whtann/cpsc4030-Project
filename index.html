@@ -14,15 +14,25 @@
         </div>
 
         <div class="graphButtons" style="width:100%">
-            <button id="sp-btn" style="width:25%" onclick="switchVisible('sp');">Scatterplot</button>
-            <button id="bc-btn" style="width:25%" onclick="switchVisible('bar');">Bar Chart</button>
-            <!-- <button id="bc-btn" style="width:25%" onclick="switchVisible('force');">Developers</button> -->
+            <button id="sp-btn" style="width:12.5%" onclick="switchVisible('sp');">Price vs Positive Ratio</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('bar');">Game vs Total Reviews</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('area');">Developer vs Total Reviews</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('bar2');">Genre vs Total Reviews</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('sp2');">Memory Size vs Price</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('sp3');">Genre vs Dev. + Price</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('area2');">Genre vs Platform</button>
+            <button id="bc-btn" style="width:12.5%" onclick="switchVisible('area3');">Platform vs Total Reviews</button>
         </div>
 
         <div class="data">
             <div id="scatterplot"></div>
             <div id="barchart"></div>
-            <!-- <svg id="forces"></svg> -->
+            <div id="areachart"></div>
+            <div id="barchart2"></div>
+            <div id="scatterplot2"></div>
+            <div id="scatterplot3"></div>
+            <div id="areachart2"></div>
+            <div id="areachart3"></div>
         </div>
 
         <script src="svgswap.js"></script>
