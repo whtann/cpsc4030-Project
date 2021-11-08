@@ -19,7 +19,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'none';
         document.getElementById('areachart3').style.display = 'none';
     }
-    if (graph == "sp") {
+    else if (graph == "area") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'block';
@@ -29,7 +29,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'none';
         document.getElementById('areachart3').style.display = 'none';
     }
-    else if (graph == "bar") {
+    else if (graph == "bar2") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'none';
@@ -39,7 +39,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'none';
         document.getElementById('areachart3').style.display = 'none';
     }
-    if (graph == "sp") {
+    else if (graph == "sp2") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'none';
@@ -49,7 +49,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'none';
         document.getElementById('areachart3').style.display = 'none';
     }
-    else if (graph == "bar") {
+    else if (graph == "sp3") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'none';
@@ -59,7 +59,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'none';
         document.getElementById('areachart3').style.display = 'none';
     }
-    if (graph == "sp") {
+    else if (graph == "area2") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'none';
@@ -69,7 +69,7 @@ function switchVisible(graph) {
         document.getElementById('areachart2').style.display = 'block';
         document.getElementById('areachart3').style.display = 'none';
     }
-    else if (graph == "bar") {
+    else if (graph == "area3") {
         document.getElementById('scatterplot').style.display = 'none';
         document.getElementById('barchart').style.display = 'none';
         document.getElementById('areachart').style.display = 'none';
