@@ -62,6 +62,30 @@ body {
     display: none
 }
 
+#areachart {
+    display: none
+}
+
+#barchart2 {
+    display: none
+}
+
+#scatterplot2 {
+    display: none
+}
+
+#scatterplot3 {
+    display: none
+}
+
+#areachart2 {
+    display: none
+}
+
+#areachart3 {
+    display: none
+}
+
 .data svg {
     background-color: white;
 }
