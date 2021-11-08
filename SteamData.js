@@ -31,17 +31,17 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
         .domain(d3.extent(dataset, yAccessor)) 
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
-    const tooltip = d3.select("#scatterplot")
-        .append("div")
-        .style("position", "absolute")
-        .style("visibility", "hidden")
-        .attr("class", "tooltip")
-        .style("color", "red")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "10px")
-        .style("padding", "10px")
+    // const tooltip = d3.select("#scatterplot")
+    //     .append("div")
+    //     .style("position", "absolute")
+    //     .style("visibility", "hidden")
+    //     .attr("class", "tooltip")
+    //     .style("color", "red")
+    //     .style("background-color", "white")
+    //     .style("border", "solid")
+    //     .style("border-width", "1px")
+    //     .style("border-radius", "10px")
+    //     .style("padding", "10px")
 
     var colors = dataset.map(d => d.Name)
 
@@ -69,20 +69,20 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
             .attr("fill", d => color(d.Genre))
             .attr("r", 3)
             .style("opacity", 0.3)
-        .on("mouseover", function(event, d) {
-            d3.select(this).transition()
-                .attr("r", 10)
-            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT}`)
-                .style("left", (event.x) + 10 + "px")
-                .style("top", (event.y) + 15 + "px")
-                .style("visibility", "visible")
-        })
-        .on("mouseout", function(event, i) {
-            d3.select(this).transition()
-                .attr("r", 3)
-            tooltip.transition()
-                .style("visibility", "hidden")
-        })
+        // .on("mouseover", function(event, d) {
+        //     d3.select(this).transition()
+        //         .attr("r", 10)
+        //     tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT}`)
+        //         .style("left", (event.x) + 10 + "px")
+        //         .style("top", (event.y) + 15 + "px")
+        //         .style("visibility", "visible")
+        // })
+        // .on("mouseout", function(event, i) {
+        //     d3.select(this).transition()
+        //         .attr("r", 3)
+        //     tooltip.transition()
+        //         .style("visibility", "hidden")
+        // })
 
 })
 
@@ -177,6 +177,9 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     var svg = d3.select("#areachart")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
+        .append("svg")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height)
 
     var nodes = dataset.map(function(d) {
         return {
@@ -208,9 +211,8 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
 })
 
 // Genre / Number Reviews
-function barchart() {
     //barchart template
-    d3.csv("SteamGames_New.csv").then(function(dataset) {
+d3.csv("SteamGames_New.csv").then(function(dataset) {
 
         dimensions = {
             width: 6000,
@@ -226,6 +228,9 @@ function barchart() {
         var svg = d3.select("#barchart2")
             .style("width", dimensions.width)
             .style("height", dimensions.height)
+            .append("svg")
+                .attr("width", dimensions.width)
+                .attr("height", dimensions.height)
 
         var genres = dataset.map(d => d.Genre)
         
@@ -254,7 +259,6 @@ function barchart() {
         var xAxisgen = d3.axisBottom().scale(xScale)
         var yAxisgen = d3.axisLeft().scale(yScale)
 
-
         var xAxis = svg.append("g")
             .call(xAxisgen)
             .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
@@ -270,16 +274,15 @@ function barchart() {
             .style("transform", `translateX(${dimensions.margin.left}px)`)
 
 
-        svg.append("text")
-            .attr("x", (dimensions.width / 2))             
-            .attr("y", 20)
-            .attr("text-anchor", "middle")  
-            .style("font-size", "24px") 
-            .style("text-decoration", "underline")  
-            .text("Steam Bar Graph");
+        // svg.append("text")
+        //     .attr("x", (dimensions.width / 2))             
+        //     .attr("y", 20)
+        //     .attr("text-anchor", "middle")  
+        //     .style("font-size", "24px") 
+        //     .style("text-decoration", "underline")  
+        //     .text("Steam Bar Graph");
 
-    })
-}
+})
 
 // //heatmap template
 // d3.csv("SteamGames_New.csv").then(function(dataset) {
@@ -401,8 +404,6 @@ function barchart() {
 // //Memory Size and Price
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
-    console.log(dataset)
-
     var dimensions = {
         width: 1500,
         height: 800,
@@ -417,6 +418,9 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     var svg = d3.select("#scatterplot2")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
+        .append("svg")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height)
 
     var xAccessor = d => d.Price
     var yAccessor = d => d.Storage
@@ -431,7 +435,6 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
         .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
     var colors = dataset.map(d => d.Name)
-    console.log(colors)
     
     var color = d3.scaleOrdinal()
         .domain(colors)
@@ -457,12 +460,10 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
         .call(yAxisgen)
         .style("transform", `translateX(${dimensions.margin.left}px)`)
 
-    console.log(dataset)
 })
 
 //genre/dev/price
-function scatterplot() {
-    d3.csv("SteamGames_New.csv").then(function(dataset) {
+d3.csv("SteamGames_New.csv").then(function(dataset) {
 
         var dimensions = {
             width: 2000,
@@ -478,6 +479,9 @@ function scatterplot() {
         var svg = d3.select("#scatterplot3")
             .style("width", dimensions.width)
             .style("height", dimensions.height)
+            .append("svg")
+                .attr("width", dimensions.width)
+                .attr("height", dimensions.height)
 
         var xAccessor = d => d.ID
         var yAccessor = d => d.Price
@@ -517,8 +521,7 @@ function scatterplot() {
             .call(yAxisgen)
             .style("transform", `translateX(${dimensions.margin.left}px)`)
 
-    })
-}
+})
 
 //final area/grid chart, platform vs reviews
 d3.csv("SteamGames_New.csv").then(function(dataset) {
@@ -543,6 +546,9 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     var svg = d3.select("#areachart2")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
+        .append("svg")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height)
 
     var nodes = dataset.map(function(d) {
         return {
@@ -597,6 +603,9 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     var svg = d3.select("#areachart3")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
+        .append("svg")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height)
 
     var nodes = dataset.map(function(d) {
         return {
