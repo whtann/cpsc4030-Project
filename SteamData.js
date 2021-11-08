@@ -1,4 +1,4 @@
-//scatterplot template
+//Price Positive Ratio
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var dimensions = {
@@ -86,7 +86,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
 
 })
 
-//barchart template
+//Game total reviews
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     dimensions = {
@@ -154,7 +154,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
             .text("Steam Bar Graph");
 })
 
-//forces template
+//developer total reviews
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var dimensions = {
@@ -223,7 +223,7 @@ function barchart() {
             }
         }
 
-        var svg = d3.select("#barchart")
+        var svg = d3.select("#barchart2")
             .style("width", dimensions.width)
             .style("height", dimensions.height)
 
@@ -460,6 +460,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     console.log(dataset)
 })
 
+//genre/dev/price
 function scatterplot() {
     d3.csv("SteamGames_New.csv").then(function(dataset) {
 
@@ -519,7 +520,7 @@ function scatterplot() {
     })
 }
 
-//final area/grid chart
+//final area/grid chart, platform vs reviews
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var dimensions = {
@@ -539,7 +540,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
         .domain(colors)
         .range(d3.schemeCategory10)
 
-    var svg = d3.select("#scatterplot")
+    var svg = d3.select("#areachart2")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
@@ -573,7 +574,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     }
 })
 
-//second area chart
+//platform total reviews
 d3.csv("SteamGames_New.csv").then(function(dataset) {
 
     var dimensions = {
@@ -593,7 +594,7 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
         .domain(colors)
         .range(d3.schemeCategory10)
 
-    var svg = d3.select("#areachart2")
+    var svg = d3.select("#areachart3")
         .style("width", dimensions.width)
         .style("height", dimensions.height)
 
@@ -767,78 +768,78 @@ d3.csv("SteamGames_New.csv").then(function(dataset) {
     }
 })
 
-// Genre / Number Reviews
-function barchart() {
-    //barchart template
-    d3.csv("SteamGames_New.csv").then(function(dataset) {
+// // Genre / Number Reviews
+// function barchart() {
+//     //barchart template
+//     d3.csv("SteamGames_New.csv").then(function(dataset) {
 
-        dimensions = {
-            width: 6000,
-            height: 800,
-            margin: {
-                top: 50,
-                bottom: 100,
-                right: 10,
-                left: 80
-            }
-        }
+//         dimensions = {
+//             width: 6000,
+//             height: 800,
+//             margin: {
+//                 top: 50,
+//                 bottom: 100,
+//                 right: 10,
+//                 left: 80
+//             }
+//         }
 
-        var svg = d3.select("#barchart")
-            .style("width", dimensions.width)
-            .style("height", dimensions.height)
+//         var svg = d3.select("#barchart3")
+//             .style("width", dimensions.width)
+//             .style("height", dimensions.height)
 
-        var genres = dataset.map(d => d.Genre)
+//         var genres = dataset.map(d => d.Genre)
         
-        var xScale = d3.scaleBand()
-            .domain(genres) 
-            .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
-            .padding(0.2)
+//         var xScale = d3.scaleBand()
+//             .domain(genres) 
+//             .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
+//             .padding(0.2)
 
 
-        var yScale = d3.scaleLinear()
-            .domain([0, 3500000])
-            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+//         var yScale = d3.scaleLinear()
+//             .domain([0, 3500000])
+//             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
 
 
-        var dots = svg.selectAll("rect")
-            .data(dataset)
-            .enter()
-            .append("rect")
-            .attr("x", d => xScale(d.Genre))
-            .attr("y", d => yScale(d.TNRAT))
-            .attr("width", xScale.bandwidth())
-            .attr("height", d => dimensions.height - dimensions.margin.bottom - yScale(d.TNRAT))
-            .attr("fill", "#FF007F");
+//         var dots = svg.selectAll("rect")
+//             .data(dataset)
+//             .enter()
+//             .append("rect")
+//             .attr("x", d => xScale(d.Genre))
+//             .attr("y", d => yScale(d.TNRAT))
+//             .attr("width", xScale.bandwidth())
+//             .attr("height", d => dimensions.height - dimensions.margin.bottom - yScale(d.TNRAT))
+//             .attr("fill", "#FF007F");
 
 
-        var xAxisgen = d3.axisBottom().scale(xScale)
-        var yAxisgen = d3.axisLeft().scale(yScale)
+//         var xAxisgen = d3.axisBottom().scale(xScale)
+//         var yAxisgen = d3.axisLeft().scale(yScale)
 
 
-        var xAxis = svg.append("g")
-            .call(xAxisgen)
-            .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
-            .selectAll("text")
-            .attr("y", 0)
-            .attr("x", "-15em")
-            .attr("transform", "rotate(-65)")
-            .style("font-size", "6px")
+//         var xAxis = svg.append("g")
+//             .call(xAxisgen)
+//             .style("transform", `translateY(${dimensions.height - dimensions.margin.bottom}px)`) 
+//             .selectAll("text")
+//             .attr("y", 0)
+//             .attr("x", "-15em")
+//             .attr("transform", "rotate(-65)")
+//             .style("font-size", "6px")
 
 
-        var yAxis = svg.append("g")
-            .call(yAxisgen.ticks(22))
-            .style("transform", `translateX(${dimensions.margin.left}px)`)
+//         var yAxis = svg.append("g")
+//             .call(yAxisgen.ticks(22))
+//             .style("transform", `translateX(${dimensions.margin.left}px)`)
 
 
-        svg.append("text")
-            .attr("x", (dimensions.width / 2))             
-            .attr("y", 20)
-            .attr("text-anchor", "middle")  
-            .style("font-size", "24px") 
-            .style("text-decoration", "underline")  
-            .text("Steam Bar Graph");
+//         svg.append("text")
+//             .attr("x", (dimensions.width / 2))             
+//             .attr("y", 20)
+//             .attr("text-anchor", "middle")  
+//             .style("font-size", "24px") 
+//             .style("text-decoration", "underline")  
+//             .text("Steam Bar Graph");
 
-    })
-}
+//     })
+// }
 
 window.onload = scatterplot();
