@@ -1,0 +1,94 @@
+body {
+	background: white;
+	background-size: 400% 400%;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #171a21;
+    color: white;
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+.graphButtons {
+    background: linear-gradient(-90deg, #5374C0, #202D4A);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.graphButtons button {
+    background-color: transparent;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+    box-sizing: border-box;
+}
+
+.graphButtons button:not(:last-child) {
+    border-right: none;
+}
+
+.graphButtons:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.graphButtons button:hover {
+    color: purple;
+}
+
+.row {
+    display: table;
+}
+
+.column {
+    float: left;
+    width: 46vw;
+    padding: 10px;
+    height: 100vh;
+    display: block;
+}
+
+#scatterplot {
+    width: 46vw;
+    display: block;
+    border: 2px solid black;
+}
+
+#barchart {
+    height: 50vh;
+    width: 46vw;
+    display: block;
+    border: 2px solid black;
+}
+
+#areachart {
+    height: 50vh;
+    width: 46vw;
+    display: block;
+    border: 2px solid black;
+}
+
+.data svg {
+    background-color: white;
+}
