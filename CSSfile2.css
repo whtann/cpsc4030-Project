@@ -65,26 +65,26 @@ body {
     float: left;
     width: 46vw;
     padding: 10px;
-    height: 100vh;
+    height: 99.5vh;
     display: block;
 }
 
 #scatterplot {
-    width: 46vw;
+    width: 50vw;
     display: block;
     border: 2px solid black;
 }
 
 #barchart {
     height: 50vh;
-    width: 46vw;
+    width: 46.5vw;
     display: block;
     border: 2px solid black;
 }
 
 #areachart {
     height: 50vh;
-    width: 46vw;
+    width: 46.5vw;
     display: block;
     border: 2px solid black;
 }
