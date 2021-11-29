@@ -90,6 +90,93 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
                 .style("visibility", "hidden")
         })
 
+    var changing_axis = svg.append("g")
+        .attr("transform", "translate("+dimensions.margin.left+")")//,"+ dimensions.margin.top +"
+        //.call(yAxisgen)
+
+    var text = svg.append("text")
+        .attr("x", (dimensions.width / 2))             
+        .attr("y", 20)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "24px") 
+        .style("text-decoration", "underline")  
+        .text("Positivity Ratio All Time vs Price");
+
+    d3.select('#PricePosAT').on('click', function() {
+
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRevAT"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+                
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+    
+        changing_axis.transition()//.call(yAxis)
+    
+        dots.transition()
+            .attr('cx', function(d) { return xScale(d.Price); })
+            .attr('width', xScale.bandwidth)
+            .attr('cy', function(d) { return yScale(d["PerPosRevAT"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["PerPosRevAT"])})
+            .duration(1000)
+    
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Positivity Ratio All Time vs Price");
+    })
+
+    d3.select('#PricePos30').on('click', function() {
+
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRev30"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+                
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+    
+        changing_axis.transition()//.call(yAxis)
+    
+        dots.transition()
+            .attr('cx', function(d) { return xScale(d.Price); })
+            .attr('width', xScale.bandwidth)
+            .attr('cy', function(d) { return yScale(d["PerPosRev30"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["PerPosRev30"])})
+            .duration(1000)
+    
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Positivity Ratio over the Last 30 Days");
+    })
+
+    d3.select('#PriceMemory').on('click', function() {
+
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["Storage"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+                
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+    
+        changing_axis.transition()//.call(yAxis)
+    
+        dots.transition()
+            .attr('cx', function(d) { return xScale(d.Price); })
+            .attr('width', xScale.bandwidth)
+            .attr('cy', function(d) { return yScale(d["Storage"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["Storage"])})
+            .duration(1000)
+    
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Storage Requirement vs Price");
+    })
+
 })
 
 //Game total reviews
@@ -138,7 +225,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .attr("y", d => yScale(d.AvgNRAT))
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions.height - dimensions.margin.bottom - yScale(d.AvgNRAT))
-        .attr("fill", "blue")//d => color(d.Genre)) FF007F
+        .attr("fill", "orange")//d => color(d.Genre)) FF007F
         .on('mouseover', function(d, i){
             d3.select(this)
                 .attr("stroke-width", 1)
@@ -194,6 +281,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             .attr('width', xScale.bandwidth)
             .attr('y', function(d) { return yScale(d["AvgNRAT"]); })
             .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgNRAT"])})
+            .duration(1000)
 
         text.attr("x", (dimensions.width / 2))             
             .attr("y", 20)
@@ -220,6 +308,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             .attr('width', xScale.bandwidth)
             .attr('y', function(d) { return yScale(d["AvgNR30"]); })
             .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgNR30"])})
+            .duration(1000)
 
         text.attr("x", (dimensions.width / 2))             
             .attr("y", 20)
@@ -246,6 +335,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             .attr('width', xScale.bandwidth)
             .attr('y', function(d) { return yScale(d["AvgPrice"]); })
             .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgPrice"])})
+            .duration(1000)
 
         text.attr("x", (dimensions.width / 2))             
             .attr("y", 20)
@@ -255,6 +345,32 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             .text("Average Price per Genre of Game");
     })
 
+    d3.select("#AvgCapacity").on('click', function(){
+
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["AvgStore"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+        //yAxisgen = d3.axisLeft().scale(yScale)
+            
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+
+        changing_axis.transition()//.call(yAxis)
+
+        dots.transition()
+            .attr('x', function(d) { return xScale(d.Genre); })
+            .attr('width', xScale.bandwidth)
+            .attr('y', function(d) { return yScale(d["AvgStore"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgStore"])})
+            .duration(1000)
+
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Average Storage Requirement per Genre of Game");
+    })
 
 })
 
@@ -272,7 +388,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 //         }
 //     }
 
-//     var colors = dataset.map(d => d.ID)
+//     var colors = dataset.map(d => d.Genre)
     
 //     var color = d3.scaleOrdinal()
 //         .domain(colors)
