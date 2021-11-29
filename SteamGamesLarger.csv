@@ -86,7 +86,7 @@ Car Mechanic Simulator 2N/A21,41.98,8/11/2021,"PlayWay S.A.,","Red Dot Games,",9
 Foxhole,49.99,7/27/2017,"Siege Camp,","Siege Camp,",90,1387,83,17181,Early,2,0,1,0,0,0,0,0,2148.634615,61.64423077,23.27759615
 BONEWORKS,19.99,12/10/2019,"Stress Level Zero,","Stress Level Zero,",92,482,91,22310,VR,20,0,1,0,0,0,0,0,3732.898305,67.79661017,29.26067797
 Squad,49.99,9/23/2020,"Offworld Industries,","Offworld Industries,",92,1102,90,66911,Military,55,0,1,0,0,0,0,0,33463,551,30.99
-Assassin's Creed® Odyssey,59.99,10/5/2018,"Ubisoft,","Ubisoft Quebec, Ubisoft Montreal, Ubisoft Bucharest, Ubisoft Singapore, Ubisoft Montpellier, Ubisoft Kiev, Ubisoft Shanghai,",90,1467,89,95874,Open,#VALUE!,0,1,0,0,0,0,0,52041.20455,856.2045455,31.81897727
+Assassin's Creed® Odyssey,59.99,10/5/2018,"Ubisoft,","Ubisoft Quebec, Ubisoft Montreal, Ubisoft Bucharest, Ubisoft Singapore, Ubisoft Montpellier, Ubisoft Kiev, Ubisoft Shanghai,",90,1467,89,95874,Open,46,0,1,0,0,0,0,0,52041.20455,856.2045455,31.81897727
 Sekiro™: Shadows Die Twice - GOTY Edition,59.99,3/21/2019,"Activision (Excluding Japan and Asia), FromSoftware (Japan), 方块游戏 (Asia),","FromSoftware,",95,1863,94,107617,Souls-like,25,0,1,0,0,0,0,0,30280.0625,456.875,35.1775
 Half-Life: Alyx,39.99,3/23/2020,"Valve,","Valve,",97,988,98,52903,VR,0,0,1,0,0,0,0,0,3732.898305,67.79661017,29.26067797
 7 Days to Die,29.99,12/13/2013,"The Fun Pimps Entertainment LLC,","The Fun Pimps,",91,1851,87,129003,Early,12,1,1,1,1,1,1,1,2148.634615,61.64423077,23.27759615
@@ -101,7 +101,7 @@ Left 4 Dead 2,29.99,11/17/2009,"Valve,","Valve,",97,7602,97,384743,Zombies,13,1,
 HOT WHEELS UNLEASHED™,59.99,9/30/2021,"Milestone S.r.l.,","Milestone S.r.l.,",0,0,83,1050,Racing,22,0,1,0,0,0,0,0,4392.66055,184.4678899,30.58091743
 Growing Up,14.99,10/14/2021,"Vile Monarch,","Vile Monarch,",0,0,82,343,Choices,2,1,1,0,1,0,0,0,4086.222222,200.2777778,36.98666667
 FINAL FANTASY XIV Online,19.99,2/18/2014,"Square Enix,","Square Enix,",92,1591,88,41421,MMORPG,60,0,1,0,0,0,0,0,26927,768.6666667,23.32333333
-Mass Effect™ Legendary Edition,19.99,5/14/2021,"Electronic Arts,","BioWare,",93,865,92,17558,RPG,0.12,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
+Mass Effect™ Legendary Edition,19.99,5/14/2021,"Electronic Arts,","BioWare,",93,865,92,17558,RPG,120,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 DEVOUR,4.99,1/28/2021,"Straight Back Games,","Straight Back Games,",93,3195,90,15369,Horror,5,1,1,0,1,0,0,0,9720.064,250.024,25.10824
 Monster Train,24.99,5/21/2020,"Good Shepherd Entertainment,","Shiny Shoe,",98,202,96,12650,Card,2,0,1,0,0,0,0,0,3272.055556,48.61111111,20.435
 CS:GO Prime Status Upgrade,14.99,8/21/2012,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
@@ -555,7 +555,7 @@ Lethal League Blaze,49.99,10/24/2018,"Team Reptile,","Team Reptile,",97,41,97,34
 Cruelty Squad,19.99,6/16/2021,"Consumer Softproducts,","Consumer Softproducts,",97,394,97,4359,FPS,1,0,1,0,0,0,0,0,25383.08537,530.8170732,72.07170732
 Tails of Iron,24.99,9/17/2021,"United Label, CI Games,","Odd Bug Studio,",0,0,91,1822,Action,2,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 BioShock: The Collection,29.99,9/16/2016,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
-"Warhammer 4N/A,N/AN/AN/A: Battlesector",39.99,7/22/2021,"Slitherine Ltd.,","Black Lab Games,",91,85,91,1396,Strategy,25,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
+"Warhammer 40,000: Battlesector",39.99,7/22/2021,"Slitherine Ltd.,","Black Lab Games,",91,85,91,1396,Strategy,25,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Company of Heroes Franchise Edition,69.99,11/3/2014,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
 Tormented Souls,19.99,8/27/2021,"PQube Limited,","Dual Effect, Abstract Digital,",93,380,94,1522,Survival,4,0,1,0,0,0,0,0,59503.38889,847.0740741,34.16833333
 S.T.A.L.K.E.R.: Shadow of Chernobyl,19.99,3/20/2007,"GSC Game World,","GSC Game World,",96,296,95,18758,Atmospheric,0,0,1,0,0,0,0,0,9652.3125,98.0625,31.911875
@@ -799,7 +799,7 @@ Empyrion - Galactic Survival,29.99,8/5/2020,"Eleon Game Studios,","Eleon Game St
 A Total War Saga: THRONES OF BRITANNIA,59.99,5/3/2018,"SEGA, Feral Interactive (Mac), Feral Interactive (Linux),","CREATIVE ASSEMBLY, Feral Interactive (Mac), Feral Interactive (Linux),",73,119,67,9084,Strategy,30,1,1,1,1,1,1,1,4109.025381,81.53553299,41.05142132
 Fast and Low,20.99,6/20/2019,"Urban Giraffe Games Inc.,","Urban Giraffe Games Inc.,",73,15,80,294,Online,2,0,1,0,0,0,0,0,1368.375,47,32.36125
 The Universim,29.99,8/1/2018,"Crytivo,","Crytivo,",92,42,81,4809,Early,20,1,1,1,1,1,1,1,2148.634615,61.64423077,23.27759615
-"Warhammer 4N/A,N/AN/AN/A: Dawn of War III",39.99,4/27/2017,"SEGA, Feral Interactive (Mac), Feral Interactive (Linux),","Relic Entertainment, Feral Interactive (Mac), Feral Interactive (Linux),",57,154,48,10955,Warhammer,50,1,1,1,1,1,1,1,7231.125,148.375,37.49
+"Warhammer 40,000: Dawn of War III",39.99,4/27/2017,"SEGA, Feral Interactive (Mac), Feral Interactive (Linux),","Relic Entertainment, Feral Interactive (Mac), Feral Interactive (Linux),",57,154,48,10955,Warhammer,50,1,1,1,1,1,1,1,7231.125,148.375,37.49
 Luck be a Landlord,24.99,1/8/2021,"TrampolineTales,","TrampolineTales,",94,166,92,3638,Roguelike,100,1,1,1,1,1,1,1,6308.1,88.43333333,20.75666667
 Maid of Sker,24.99,7/28/2020,"Wales Interactive,","Wales Interactive,",75,24,81,607,Adventure,15,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
 Changed,5.99,4/4/2018,"DragonSnow,","DragonSnow,",91,215,92,6114,Cute,0,0,1,0,0,0,0,0,10469.72727,242.8181818,18.99
@@ -942,7 +942,7 @@ LOST EMBER,39.99,11/22/2019,"Mooneye Studios,","Mooneye Studios,",87,194,89,2742
 Depth,29.99,11/3/2014,"Digital Confectioners,","Digital Confectioners,",87,95,89,22283,Action,10,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Clickteam Fusion 2.5,34.99,12/5/2013,"Clickteam,","Clickteam,",10,10,90,672,Game,0,0,1,0,0,0,0,0,479.25,7.125,145.5825
 Rise of the Tomb Raider™,59.99,2/9/2016,"Square Enix, Feral Interactive (Mac), Feral Interactive (Linux),","Crystal Dynamics, Eidos-Montréal, Feral Interactive (Mac), Feral Interactive (Linux), Nixxes,",93,712,94,83461,Adventure,25,1,1,1,1,1,1,1,1660.002024,30.6437247,53.61291498
-"Warhammer 4N/A,N/AN/AN/A: Space Marine - Anniversary Edition",39.99,9/6/2011,"SEGA,","Relic Entertainment,",92,295,93,8112,Warhammer,0,0,1,0,0,0,0,0,7231.125,148.375,37.49
+"Warhammer 40,000: Space Marine - Anniversary Edition",39.99,9/6/2011,"SEGA,","Relic Entertainment,",92,295,93,8112,Warhammer,0,0,1,0,0,0,0,0,7231.125,148.375,37.49
 Dungeons & Dragons: Dark Alliance,39.99,6/21/2021,"Wizards of the Coast,","Tuque Games,",44,54,50,3436,Co-op,50,0,1,0,0,0,0,0,45804.89474,587,34.93526316
 Bloodstained: Ritual of the Night,29.99,6/18/2019,"5N/A5 Games,","ArtPlay,",88,217,95,21296,Metroidvania,10,0,1,0,0,0,0,0,9198.259259,217.8518519,28.65333333
 Game Dev Tycoon,44.99,8/29/2013,"Greenheart Games 💚,","Greenheart Games 💚,",96,142,95,32802,Simulation,0,1,1,1,1,1,1,1,2702.746479,57.28450704,36.66304225
@@ -1211,7 +1211,7 @@ Red Solstice 2: Survivors,29.99,6/17/2021,"5N/A5 Games,","Ironward,",80,36,70,17
 MidBoss,14.99,5/25/2017,"Kitsune Games,","Kitsune Games,",0,0,84,186,Traditional,0.3,1,1,1,1,1,1,1,767.1428571,4.928571429,12.98785714
 Until You Fall,24.99,10/27/2020,"Schell Games,","Schell Games,",95,24,95,2106,VR,4,0,1,0,0,0,0,0,3732.898305,67.79661017,29.26067797
 Main Assembly,19.99,1/26/2021,"Team17,","Bad Yolk Games,",88,18,91,583,3D,3,0,1,0,0,0,0,0,1128,17.46666667,24.72333333
-"Warhammer 4N/A,N/AN/AN/A: Mechanicus",39.99,11/15/2018,"Kasedo Games,","Bulwark Studios,",87,140,93,6710,Warhammer,11,1,1,1,1,1,1,1,7231.125,148.375,37.49
+"Warhammer 40,000: Mechanicus",39.99,11/15/2018,"Kasedo Games,","Bulwark Studios,",87,140,93,6710,Warhammer,11,1,1,1,1,1,1,1,7231.125,148.375,37.49
 ICBM,19.99,11/17/2020,"Slitherine Ltd.,","SoftWarWare, K-Project,",95,21,93,754,RTS,2,0,1,0,0,0,0,0,2255.9,37.2,30.49
 Sniper Elite 3,39.99,6/27/2014,"Rebellion,","Rebellion,",86,165,81,15673,Sniper,18,0,1,0,0,0,0,0,11773.16667,250,39.99
 WWE 2K19,59.99,10/9/2018,"2K,","Visual Concepts, Yuke's Co., LTD,",81,54,72,2573,Sports,50,0,1,0,0,0,0,0,2365.833333,70.66666667,42.68636364
@@ -1349,7 +1349,7 @@ Driver4VR,34.99,4/5/2021,"2MW,","2MW,",78,28,70,85,Utilities,0.2,0,1,0,0,0,0,0,1
 Ni no Kuni Wrath of the White Witch™ Remastered,49.99,9/19/2019,"BANDAI NAMCO Entertainment,","LEVEL-5, QLOC,",79,39,87,1695,RPG,45,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 The Witcher 2: Assassins of Kings Enhanced Edition,39.99,5/17/2011,"CD PROJEKT RED, 1C-SoftClub,","CD PROJEKT RED,",91,569,90,60500,RPG,0,1,1,1,1,1,1,1,4388.014535,70.58139535,41.3109593
 Harvest Moon: One World,14.99,9/7/2021,"Natsume Inc.,","Natsume Inc., Appci,",0,0,64,17,Adventure,0,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
-"Warhammer® 4N/A,N/AN/AN/A: Dawn of War® – Winter Assault",12.99,1/1/2006,"SEGA,","Relic Entertainment,",88,18,90,1032,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
+"Warhammer® 40,000: Dawn of War® – Winter Assault",12.99,1/1/2006,"SEGA,","Relic Entertainment,",88,18,90,1032,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 My Garage,24.99,8/10/2021,"Viking,","Viking,",96,82,95,257,Simulation,5,0,1,0,0,0,0,0,2702.746479,57.28450704,36.66304225
 Fran Bow,14.99,8/27/2015,"Killmonday Games AB,","Killmonday Games AB,",97,188,96,8371,Psychological,0.6,1,1,1,1,1,1,1,5530.75,174.8125,25.2375
 Slender: The Arrival,9.99,10/28/2013,"Blue Isle Publishing,","Blue Isle Studios,",80,56,88,5370,Horror,2,1,1,0,1,0,0,0,9720.064,250.024,25.10824
@@ -1362,7 +1362,7 @@ Ziggurat 2,19.99,10/22/2020,"Milkstone Studios,","Milkstone Studios,",90,21,94,5
 FATE,29.99,5/18/2005,"WildTangent,","WildTangent,",93,45,94,1938,RPG,0.4,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 Ultimate ADOM - Caverns of Chaos,19.99,8/25/2021,"Assemble Entertainment, WhisperGames,","Thomas Biskup, Jochen Terstiege, Krzysztof Dycha, Lucas Dieguez, Bastian von Gostomski, Carola Sochiera, Björn Loesing,",45,11,62,227,Fantasy,1.5,1,1,1,1,1,1,1,178.3333333,13.33333333,23.32333333
 Granny Simulator,4.99,8/17/2019,"Nick Kestle,","Nick Kestle,",96,50,92,2104,Multiplayer,1,0,1,0,0,0,0,0,24488.5814,437.1395349,52.09069767
-"Warhammer 4N/A,N/AN/AN/A: Inquisitor - Prophecy",29.99,7/30/2019,"NeocoreGames,","NeocoreGames,",64,56,79,1586,Action,30,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
+"Warhammer 40,000: Inquisitor - Prophecy",29.99,7/30/2019,"NeocoreGames,","NeocoreGames,",64,56,79,1586,Action,30,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Octogeddon,24.99,2/8/2018,"All Yes Good,","All Yes Good,",0,0,89,492,Action,0.7,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Country Girl Keiko,15.99,1/16/2020,"Kagura Games,","Ota Guchi Field,",0,0,72,158,RPG,2,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 Umineko: Golden Fantasia,19.99,12/8/2017,"MangaGamer,","N/A7th Expansion,",0,0,89,235,Action,2.5,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
@@ -1462,7 +1462,7 @@ Möbius Front '83,19.99,11/5/2020,"Zachtronics,","Zachtronics,",0,0,75,218,Turn-
 Transistor,39.99,5/20/2014,"Supergiant Games,","Supergiant Games,",88,61,94,24825,Great,3,1,1,1,1,1,1,1,21625.84211,362.1578947,22.14789474
 ECO HOLE,29.99,10/7/2021,"AIHASTO,","AIHASTO,",0,0,0,0,Adventure,1,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
 Pyre,39.99,7/25/2017,"Supergiant Games,","Supergiant Games,",90,33,90,6591,Indie,9,1,1,1,1,1,1,1,802.9269841,12.4984127,25.0667619
-"Warhammer 4N/A,N/AN/AN/A: Dawn of War II",19.99,2/18/2009,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",84,79,87,4939,Warhammer,#VALUE!,1,1,1,1,1,1,1,7231.125,148.375,37.49
+"Warhammer 40,000: Dawn of War II",19.99,2/18/2009,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",84,79,87,4939,Warhammer,8,1,1,1,1,1,1,1,7231.125,148.375,37.49
 Takelings House Party,29.99,7/25/2019,"DimnHouse,","DimnHouse,",0,0,76,193,4,2,0,1,0,0,0,0,0,7889.5,76.5,24.99
 Fallout: A Post Nuclear Role Playing Game,9.99,9/30/1997,"Bethesda Softworks,","Interplay Inc.,",94,139,94,8151,RPG,0,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 Petal Crash,9.99,10/12/2020,"GalaxyTrail,","Friend & Fairy,",0,0,98,135,Indie,0.2,1,1,1,1,1,1,1,802.9269841,12.4984127,25.0667619
@@ -1546,7 +1546,7 @@ Ticket to Ride,9.99,5/24/2012,"Days of Wonder, Asmodee Digital,","Days of Wonder
 Bloons TD 5,9.99,11/19/2014,"Ninja Kiwi,","Ninja Kiwi,",97,103,94,7473,Tower,0.512,1,1,0,1,0,0,0,5299.307692,139.2692308,25.49
 Command & Conquer: Red Alert 3 - Uprising,19.99,3/12/2009,"Electronic Arts,","EA Los Angeles,",91,34,87,2434,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Get Together: A Coop Adventure,10.99,10/14/2021,"Studio Sterneck,","Studio Sterneck,",0,0,72,11,Puzzle,1,0,1,0,0,0,0,0,4557.517647,50.68235294,26.37352941
-"Warhammer® 4N/A,N/AN/AN/A: Dawn of War® - Dark Crusade",12.99,10/9/2006,"SEGA,","Relic Entertainment,",10,79,96,4726,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
+"Warhammer® 40,000: Dawn of War® - Dark Crusade",12.99,10/9/2006,"SEGA,","Relic Entertainment,",10,79,96,4726,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Prototype™,960.47,6/10/2009,"Activision,","Radical Entertainment,",82,67,79,6545,Action,0,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Contra Anniversary Collection,19.99,6/11/2019,"Konami Digital Entertainment,","Konami Digital Entertainment,",76,34,79,381,Action,0.504,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Day of Defeat: Source,49.99,7/12/2010,"Valve,","Valve,",95,104,89,10616,FPS,0,1,1,0,1,0,0,0,25383.08537,530.8170732,72.07170732
@@ -1768,7 +1768,7 @@ METAL SLUG Bundle,15.99,9/14/2015,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.71955719
 Despotism 3k,7.99,11/8/2018,"Konfa Games,","Konfa Games,",72,18,83,628,Strategy,0.3,1,1,1,1,1,1,1,4109.025381,81.53553299,41.05142132
 The Political Process,19.99,11/22/2019,"Verlumino Studios LLC,","Verlumino Studios LLC,",10,22,96,1120,Political,0.5,0,1,0,0,0,0,0,2596.888889,33.11111111,17.10111111
 Zombies Ate My Neighbors and Ghoul Patrol,39.99,6/29/2021,"Disney, Lucasfilm Games,","DotEmu,",0,0,45,80,Action,0.3,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
-"Warhammer® 4N/A,N/AN/AN/A: Dawn of War® - Soulstorm",29.99,3/5/2008,"SEGA,","Relic Entertainment,",97,149,95,8415,Warhammer,0,0,1,0,0,0,0,0,7231.125,148.375,37.49
+"Warhammer® 40,000: Dawn of War® - Soulstorm",29.99,3/5/2008,"SEGA,","Relic Entertainment,",97,149,95,8415,Warhammer,0,0,1,0,0,0,0,0,7231.125,148.375,37.49
 Partisans 1941,14.99,10/14/2020,"Daedalic Entertainment,","Alter Games,",80,211,84,3459,Strategy,10,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 The Surge 2,59.99,9/23/2019,"Focus Home Interactive,","Deck13,",80,86,78,4153,Souls-like,20,0,1,0,0,0,0,0,30280.0625,456.875,35.1775
 Creed: Rise to Glory™,29.99,9/25/2018,"Survios,","Survios,",81,11,80,1045,VR,4,0,1,0,0,0,0,0,3732.898305,67.79661017,29.26067797
@@ -1969,7 +1969,7 @@ Smile For Me,19.99,5/31/2019,"LimboLane,","Day Lane, Yugo Limbo,",10,13,98,1139,
 Easy Pose,34.99,6/4/2020,"Madcat Games,","Madcat Games,",10,23,95,355,Utilities,0.6,1,1,0,1,0,0,0,1101.04878,36.63414634,47.6202439
 Deep Rock Galactic - Original Soundtrack Volume I + II,9.99,2/28/2018,"Coffee Stain Publishing,","Ghost Ship Games,",0,0,96,122,Indie,0.8,0,1,1,0,0,1,0,802.9269841,12.4984127,25.0667619
 Shadowrun Returns,39.99,7/25/2013,"Paradox Interactive,","Harebrained Schemes,",86,30,88,8415,RPG,0,1,1,1,1,1,1,1,4388.014535,70.58139535,41.3109593
-Myst: Masterpiece Edition,29.99,1/2/1999,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,82,529,Adventure,#VALUE!,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
+Myst: Masterpiece Edition,29.99,1/2/1999,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,82,529,Adventure,2,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 Nexomon: Extinction,19.99,8/28/2020,"PQube Limited, VEWO Interactive Inc.,","VEWO Interactive Inc.,",91,36,93,1553,Turn-Based,0,1,1,0,1,0,0,0,8875.321429,100.9285714,34.53535714
 Hundred Days - Winemaking Simulator,29.99,5/13/2021,"Broken Arms Games,","Broken Arms Games,",0,0,74,373,Strategy,2,1,1,0,1,0,0,0,4109.025381,81.53553299,41.05142132
 Sonic Adventure DX,19.99,3/4/2011,"SEGA,","SEGA,",91,191,91,7167,Platformer,0,0,1,0,0,0,0,0,8418.444444,98.52777778,25.71722222
@@ -2086,7 +2086,7 @@ Pine,19.99,10/10/2019,"Kongregate,","Twirlbound,",75,12,74,1240,Singleplayer,4,1
 Paperball,11.99,3/27/2020,"Cliax Games,","Cliax Games,",0,0,97,149,Action,1,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Call of the Sea,24.99,12/8/2020,"Raw Fury,","Out of the Blue,",95,43,89,1411,Adventure,15,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
 Objects in Space,29.99,6/21/2018,"5N/A5 Games,","Flat Earth Games,",0,0,54,468,Simulation,1,1,1,1,1,1,1,1,2702.746479,57.28450704,36.66304225
-"Warhammer® 4N/A,N/AN/AN/A: Dawn of War® - Game of the Year Edition",14.99,1/1/2006,"SEGA,","Relic Entertainment,",98,107,95,4735,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
+"Warhammer® 40,000: Dawn of War® - Game of the Year Edition",14.99,1/1/2006,"SEGA,","Relic Entertainment,",98,107,95,4735,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 OVRdrop,34.99,3/31/2017,"Nicholas Ewalt,","Nicholas Ewalt,",0,0,68,487,Utilities,100,0,1,0,0,0,0,0,1101.04878,36.63414634,47.6202439
 Mass Effect (2N/AN/A7),19.99,5/28/2008,"Electronic Arts,","BioWare,",85,34,94,13986,RPG,0,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 Victoria I Complete,75.88,8/20/2010,"Paradox Interactive,","Paradox Development Studio,",0,0,70,160,Strategy,0,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
@@ -2094,13 +2094,13 @@ Victoria I Complete,75.88,8/20/2010,"Paradox Interactive,","Paradox Development 
 Peggle™ Nights,59.99,10/15/2008,"PopCap Games, Inc., Electronic Arts,","PopCap Games, Inc.,",10,12,95,767,Casual,0,1,1,0,1,0,0,0,591.1660777,19.47349823,25.58780919
 The Typing of The Dead: Overkill,19.99,10/29/2013,"SEGA,","Modern Dream,",91,12,86,2053,Typing,10,0,1,0,0,0,0,0,1662.6,13.2,22.184
 Titan Quest Anniversary Edition,19.99,8/31/2016,"THQ Nordic,","Iron Lore Entertainment, THQ Nordic,",93,304,91,17986,RPG,5,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
-Myst V: End of Ages,39.99,7/19/2005,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,60,151,Adventure,#VALUE!,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
+Myst V: End of Ages,39.99,7/19/2005,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,60,151,Adventure,4.8,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 Geometry Arena,7.99,6/1/2021,"N/A11 Games,","N/A11 Games,",98,57,97,1507,Roguelite,0.5,1,1,0,1,0,0,0,8036.8,158.6,17.39066667
 Tell Me Why,19.99,8/27/2020,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
 The Banner Saga 3,39.99,7/26/2018,"Versus Evil,","Stoic,",83,24,81,1718,Strategy,8,1,1,0,1,0,0,0,4109.025381,81.53553299,41.05142132
 Succubus Affection,19.99,10/23/2020,"Kagura Games,","Succubus Diary,",85,20,93,570,Sexual,2,0,1,0,0,0,0,0,2270.12,55.18666667,18.34426667
 SNOW - The Ultimate Edition,114.95,11/11/2020,"Crytek,","Poppermost Productions, WastedStudios, Crytek,",0,0,64,2183,Sports,10,0,1,0,0,0,0,0,2365.833333,70.66666667,42.68636364
-URU: Complete Chronicles,39.99,7/7/2004,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,79,124,Adventure,#VALUE!,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
+URU: Complete Chronicles,39.99,7/7/2004,"Cyan Worlds Inc,","Cyan Worlds Inc,",0,0,79,124,Adventure,2.5,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 Into The Flames,19.99,5/27/2020,"Fully Involved Game Studios,","Fully Involved Game Studios,",94,18,91,174,Simulation,8,0,1,0,0,0,0,0,2702.746479,57.28450704,36.66304225
 The End of Dyeus,14.99,10/15/2021,"Curious Planet,","Curious Planet,",0,0,0,0,Action-Adventure,0.512,0,1,1,0,0,1,0,7481.111111,65.66666667,29.43444444
 TOEM,14.99,9/17/2021,"Something We Made,","Something We Made,",0,0,99,289,Adventure,0,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
@@ -2109,7 +2109,7 @@ Paws,14.99,3/24/2016,"Might and Delight,","Might and Delight,",0,0,90,477,Advent
 Mini Healer,39.99,4/24/2020,"Sad Doge,","Sad Doge,",94,17,96,724,Party-Based,2,0,1,0,0,0,0,0,2126.5,91.25,22.49
 Men of War: Assault Squad 2 - Cold War,59.99,9/12/2019,"1C Entertainment,","Digitalmindsoft,",0,0,22,796,Strategy,15,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Batman™: Arkham Origins Blackgate - Deluxe Edition,19.99,4/1/2014,"WB Games,","Armature Studio,",0,0,43,953,Action,3,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
-Riven: The Sequel to MYST,29.99,10/29/1997,"Cyan Worlds Inc,","Cyan Worlds Inc,",10,16,85,774,Adventure,#VALUE!,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
+Riven: The Sequel to MYST,29.99,10/29/1997,"Cyan Worlds Inc,","Cyan Worlds Inc,",10,16,85,774,Adventure,6.6,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 Oxenfree,59.99,1/14/2016,"Night School Studio,","Night School Studio,",87,33,92,7389,Story,3,1,1,1,1,1,1,1,10374.79167,185.25,30.82333333
 Mega Man X Legacy Collection 2,29.99,7/24/2018,"CAPCOM CO., LTD,","CAPCOM CO., LTD,",83,24,76,951,Action,7,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Eldest Souls,19.99,7/29/2021,"United Label, CI Games,","Fallen Flag Studio,",75,58,83,993,Souls-like,2,0,1,0,0,0,0,0,30280.0625,456.875,35.1775
@@ -2218,7 +2218,7 @@ Airport Madness 3D: Volume 2,19.99,11/22/2017,"Big Fat Simulations Inc.,","Big F
 Jetborne Racing,9.99,5/27/2021,"Boundless Dynamics, LLC,","Boundless Dynamics, LLC,",0,0,96,272,Racing,3,0,1,0,0,0,0,0,4392.66055,184.4678899,30.58091743
 Event[N/A],70.33,9/14/2016,"Ocelot Society,","Ocelot Society,",0,0,78,1220,Adventure,10,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 Hitman: Blood Money,59.99,5/30/2006,"Io-Interactive A/S,","Io-Interactive A/S,",91,62,93,7910,Stealth,0,0,1,0,0,0,0,0,9300.37037,124.7407407,39.62
-Capcom Beat 'Em Up Bundle,19.99,10/10/2018,"CAPCOM Co., Ltd.,","CAPCOM Co., Ltd.,",0,0,86,611,Beat,#VALUE!,0,1,0,0,0,0,0,752,11.57142857,18.70428571
+Capcom Beat 'Em Up Bundle,19.99,10/10/2018,"CAPCOM Co., Ltd.,","CAPCOM Co., Ltd.,",0,0,86,611,Beat,0.85,0,1,0,0,0,0,0,752,11.57142857,18.70428571
 YIIK: A Postmodern RPG,19.99,1/17/2019,"Ysbryd Games,","Ackk Studios,",0,0,56,187,JRPG,4,1,1,0,1,0,0,0,4642,75.6,33.38566667
 LEGO® The Hobbit™,19.99,4/8/2014,"Warner Bros. Interactive Entertainment, Feral Interactive (Mac),","Traveller's Tales, Feral Interactive (Mac),",90,44,77,3164,LEGO,10,0,1,0,0,0,0,0,4255.642857,95.57142857,29.99
 Survive on Raft,9.99,7/5/2019,"IO Games,","IO Games,",69,13,65,428,Simulation,0.5,0,1,0,0,0,0,0,2702.746479,57.28450704,36.66304225
@@ -2247,7 +2247,7 @@ The Golf Club VR,9.99,2/24/2017,"HB Studios,","HB Studios,",0,0,69,466,Sports,4,
 Insurmountable,14.99,4/29/2021,"ByteRockers' Games,","ByteRockers' Games,",0,0,89,266,Strategy,4,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Muv-Luv photonflowers*,24.99,8/2/2019,"aNCHOR Inc.,","aNCHOR Inc.,",0,0,96,127,Sexual,4,0,1,0,0,0,0,0,2270.12,55.18666667,18.34426667
 Mainframe Defenders,44.99,2/25/2020,"Mega9pixel,","Synthetic Domain,",0,0,94,392,Puzzle,0.2,0,1,1,0,0,1,0,4557.517647,50.68235294,26.37352941
-"Warhammer® 4N/A,N/AN/AN/A: Dawn of War® II Chaos Rising",59.99,3/10/2010,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",82,23,88,1362,Strategy,#VALUE!,1,1,1,1,1,1,1,4109.025381,81.53553299,41.05142132
+"Warhammer® 40,000: Dawn of War® II Chaos Rising",59.99,3/10/2010,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",82,23,88,1362,Strategy,8,1,1,1,1,1,1,1,4109.025381,81.53553299,41.05142132
 Dungeons & Dragons: Chronicles of Mystara,19.99,6/18/2013,"Capcom,","Iron Galaxy Studios,",0,0,81,972,Beat,0,0,1,0,0,0,0,0,752,11.57142857,18.70428571
 Nancy Drew®: The Haunted Carousel,29.99,8/22/2003,"HeR Interactive,","HeR Interactive,",0,0,91,101,Adventure,0,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
 Magical Swordmaiden,19.99,12/19/2020,"Kagura Games, MangaGamer,","Lunasoft,",0,0,71,67,RPG,0.15,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
@@ -2430,7 +2430,7 @@ Three Fairies' Hoppin' Flappin' Great Journey!,17.99,8/27/2021,"Phoenixx Inc.,",
 Nightmares from the Deep 2: The Siren`s Call,29.99,7/24/2013,"Artifex Mundi,","Artifex Mundi,",0,0,94,412,Hidden,1,1,1,1,1,1,1,1,700.7391304,6.173913043,35.5226087
 Creeper World 3: Arc Eternal,29.99,3/27/2014,"Knuckle Cracker,","Knuckle Cracker,",86,22,96,3270,Tower,0.5,1,1,1,1,1,1,1,5299.307692,139.2692308,25.49
 Garbage,14.99,6/4/2021,"GrabTheGames,","Homebased,",56,23,71,464,Simulation,8,1,1,0,1,0,0,0,2702.746479,57.28450704,36.66304225
-"Warhammer 4N/A,N/AN/AN/A: Inquisitor - Martyr",59.99,6/5/2018,"NeocoreGames,","NeocoreGames,",74,307,74,11476,Warhammer,75,0,1,0,0,0,0,0,7231.125,148.375,37.49
+"Warhammer 40,000: Inquisitor - Martyr",59.99,6/5/2018,"NeocoreGames,","NeocoreGames,",74,307,74,11476,Warhammer,75,0,1,0,0,0,0,0,7231.125,148.375,37.49
 Accident,29.99,9/21/2021,"Duality Games, PlayWay S.A., HeartBeat Games,","Duality Games, Glob Games Studio,",82,78,79,689,Simulation,18,0,1,0,0,0,0,0,2702.746479,57.28450704,36.66304225
 Monster Train Soundtrack,43.97,5/21/2020,"Good Shepherd Entertainment,","Shiny Shoe,",0,0,91,12,N/A,67,0,1,0,0,0,0,0,1.719557196,0.070110701,30.50527675
 Dread X Collection 2,39.99,8/21/2020,"DreadXP,","DreadXP, David Szymanski, Torple Dook, Lovely Hellplace, Scythe Dev Team, Secret Cow Level, panstasz, Mahelyk, Daniel Mullins Games, Wither Studios, Akabaka, Vidas Salavejus, Wayward Preacher, John Szymanski, Bathysfear Labs,",0,0,95,298,Horror,10,0,1,0,0,0,0,0,9720.064,250.024,25.10824
@@ -3025,7 +3025,7 @@ Labyrinths of the World: Hearts of the Planet Collector's Edition,29.99,8/17/202
 Crazy Machines,59.99,10/1/2005,"Viva Media,","Fakt Software,",0,0,80,82,Puzzle,0,0,1,0,0,0,0,0,4557.517647,50.68235294,26.37352941
 Hentai Mosaique Neko Waifus,1.99,1/27/2020,"Lil Hentai Games,","Lil Hentai Games,",97,73,91,1465,Sexual,0.5,0,1,1,0,0,1,0,2270.12,55.18666667,18.34426667
 Table Manners: Physics-Based Dating Game,17.99,2/14/2020,"Curve Digital ,","Echo Chamber Games,",0,0,56,266,Simulation,2,0,1,0,0,0,0,0,2702.746479,57.28450704,36.66304225
-"Warhammer 4N/A,N/AN/AN/A: Dawn of War II: Retribution",29.99,3/1/2011,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",90,63,90,5700,Warhammer,#VALUE!,1,1,1,1,1,1,1,7231.125,148.375,37.49
+"Warhammer 40,000: Dawn of War II: Retribution",29.99,3/1/2011,"SEGA, Feral Interactive (Mac/Linux),","Relic Entertainment, Feral Interactive (Mac/Linux),",90,63,90,5700,Warhammer,8,1,1,1,1,1,1,1,7231.125,148.375,37.49
 HITMAN 2 - Gold Edition,99.99,11/13/2018,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
 Rusty Lake: Roots,29.99,10/20/2016,"Rusty Lake,","Rusty Lake,",95,65,96,3844,Puzzle,100,1,1,0,1,0,0,0,4557.517647,50.68235294,26.37352941
 The Crooked Man,19.99,1/16/2018,"PLAYISM,","Uri Games,",0,0,91,474,2D,100,0,1,0,0,0,0,0,1275.809524,39.33333333,20.51285714
@@ -3047,7 +3047,7 @@ Marble Skies,9.99,12/16/2017,"Birdwall Games,","Birdwall Games,",0,0,85,179,Indi
 The Goatman,4.99,6/15/2018,"MC Games,","MC Games,",0,0,70,253,Action,6,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 The Dishwasher: Vampire Smile,29.99,5/12/2017,"Ska Studios,","Ska Studios,",10,10,94,763,Action,1,1,1,1,1,1,1,1,3264.582596,57.48230088,45.25634218
 Emergence ᵠ,34.99,5/9/2020,N/A,"17th Dimension,",0,0,90,33,Education,3,0,1,0,0,0,0,0,203.875,0,23.74
-"Warhammer 4N/A,N/AN/AN/A: Regicide",39.99,9/8/2015,"Hammerfall Publishing,","Hammerfall Publishing,",0,0,69,1542,Warhammer,5,0,1,0,0,0,0,0,7231.125,148.375,37.49
+"Warhammer 40,000: Regicide",39.99,9/8/2015,"Hammerfall Publishing,","Hammerfall Publishing,",0,0,69,1542,Warhammer,5,0,1,0,0,0,0,0,7231.125,148.375,37.49
 Vibrant Venture,29.99,7/24/2020,"Semag Games,","Semag Games,",10,19,98,299,Indie,0.2,1,1,1,1,1,1,1,802.9269841,12.4984127,25.0667619
 Warden of the Isles,9.99,2/14/2020,"Beardlings LLC,","Beardlings LLC,",0,0,85,28,Indie,2,0,1,0,0,0,0,0,802.9269841,12.4984127,25.0667619
 Moss,19.99,2/27/2018,"Polyarc,","Polyarc,",10,22,94,1936,Adventure,12,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
@@ -3343,7 +3343,7 @@ Cats Organized Neatly,44.99,10/12/2020,"DU&I,","DU&I,",96,86,98,969,Cats,50,0,1,
 GameGuru,34.99,5/19/2015,"TheGameCreators,","TheGameCreators,",66,12,73,1100,Game,12,0,1,0,0,0,0,0,479.25,7.125,145.5825
 GunSoul Girl,1.99,2/25/2021,"HyperStar Group,","MoeGame,",76,34,74,1224,Nudity,12,0,1,0,0,0,0,0,1750.259259,15.18518519,25.24962963
 DYNASTY WARRIORS 9 Complete Edition / 真・三國無双８ オールシーズンパスエディション,84.99,12/4/2019,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
-"Warhammer 4N/A,N/AN/AN/A: Gladius - Relics of War",59.99,7/12/2018,"Slitherine Ltd.,","Proxy Studios,",72,33,81,3898,Strategy,4,0,1,1,0,0,1,0,4109.025381,81.53553299,41.05142132
+"Warhammer 40,000: Gladius - Relics of War",59.99,7/12/2018,"Slitherine Ltd.,","Proxy Studios,",72,33,81,3898,Strategy,4,0,1,1,0,0,1,0,4109.025381,81.53553299,41.05142132
 Caravaneer 2,5.99,12/7/2014,"Dmitry Zheltobriukhov,","Dmitry Zheltobriukhov,",0,0,94,194,RPG,100,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 rFactor 2,31.99,3/28/2013,"Studio 397,","Studio 397,",81,69,81,3749,Racing,30,0,1,0,0,0,0,0,4392.66055,184.4678899,30.58091743
 PAGAN: Autogeny,39.99,8/14/2019,"Hex Code Coven,","Oleander Garden,",0,0,90,22,Indie,1,0,1,0,0,0,0,0,802.9269841,12.4984127,25.0667619
@@ -4745,7 +4745,7 @@ Don't Be Afraid,29.99,12/17/2020,"Hydra Games S.A.,","Hydra Games S.A., Limo Gam
 Putt-Putt® Goes to the Moon,29.99,10/1/1993,"Humongous Entertainment, Nightdive Studios,","Humongous Entertainment,",0,0,94,100,Adventure,0.512,1,1,1,1,1,1,1,1660.002024,30.6437247,53.61291498
 USA Truck Simulator,11.94,3/25/2021,"Success Games, Cristian Manolachi, Atomic Fabrik,","Success Games,",0,0,53,15,Racing,0.7,0,1,0,0,0,0,0,4392.66055,184.4678899,30.58091743
 Fimbul Winter,11.94,5/6/2021,"Success Games,","Success Games,",0,0,0,0,Action,0.8,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
-"Warhammer 4N/A,N/AN/AN/A: Sanctus Reach",59.99,1/19/2017,"Slitherine Ltd.,","Straylight Entertainment,",0,0,86,940,Strategy,2,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
+"Warhammer 40,000: Sanctus Reach",59.99,1/19/2017,"Slitherine Ltd.,","Straylight Entertainment,",0,0,86,940,Strategy,2,0,1,0,0,0,0,0,4109.025381,81.53553299,41.05142132
 Tempest of the Heavens and Earth,39.99,12/25/2018,"DLsite,","LION HEART,",0,0,91,248,Action,0.5,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Swaying Girl,0.99,11/20/2020,"Shoot Girl,","Wet Girl,",87,247,90,3023,Sexual,0.2,0,1,0,0,0,0,0,2270.12,55.18666667,18.34426667
 YoloMouse,34.99,5/1/2020,"Dragonrise Games,","Dragonrise Games,",91,47,94,590,Utilities,16,0,1,0,0,0,0,0,1101.04878,36.63414634,47.6202439
@@ -5294,7 +5294,7 @@ Lilith Odyssey,29.99,8/20/2021,"Chaystar Unlimited LLC,","Chaystar Unlimited LLC
 Sword Art Online Re: Hollow Fragment,19.99,8/20/2018,"BANDAI NAMCO Entertainment,","AQURIA Co., Ltd.,",81,27,80,1349,RPG,30,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 Divine Miko Koyori,19.99,1/30/2020,"Kagura Games,","Circle Poison,",0,0,76,408,RPG,2,0,1,0,0,0,0,0,4388.014535,70.58139535,41.3109593
 RHEM III SE,59.99,3/25/2021,"Runesoft GmbH,","Knut Müller,",0,0,93,16,Adventure,0,0,1,0,0,0,0,0,1660.002024,30.6437247,53.61291498
-"Warhammer 4N/A,N/AN/AN/A: Dakka Squadron - Flyboyz Edition",19.99,2/19/2021,"Phosphor Game Studios,","Phosphor Game Studios,",0,0,81,216,Action,10,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
+"Warhammer 40,000: Dakka Squadron - Flyboyz Edition",19.99,2/19/2021,"Phosphor Game Studios,","Phosphor Game Studios,",0,0,81,216,Action,10,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Burger Shop,6.99,10/6/2007,"GoBit Games,","GoBit Games,",0,0,98,97,Action,75,1,1,0,1,0,0,0,3264.582596,57.48230088,45.25634218
 Cat Gets Medieval,19.99,3/2/2021,"LetMeowt Games LLC,","LetMeowt Games LLC,",0,0,98,54,Early,4,0,1,0,0,0,0,0,2148.634615,61.64423077,23.27759615
 Discord Bot Maker,34.99,8/21/2017,"Robert Borghese,","Robert Borghese,",94,36,90,1901,Utilities,0.2,0,1,0,0,0,0,0,1101.04878,36.63414634,47.6202439
@@ -5893,7 +5893,7 @@ One Hand Clapping,11.99,6/10/2021,"HandyGames,","Bad Dream Games,",0,0,80,189,Ad
 Deadlight: Director's Cut,29.99,6/21/2016,"Deep Silver,","Tequila Works, Abstraction Games,",0,0,72,470,Action,5,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
 Pill Puzzle 2,0.99,8/20/2021,"Coffee Studio,","Coffee Studio,",0,0,10,15,Casual,0.15,0,1,0,0,0,0,0,591.1660777,19.47349823,25.58780919
 The Unexpected Quest,29.99,11/27/2020,"PQube Limited,","Rionix,",0,0,79,87,Fantasy,0.512,1,1,0,1,0,0,0,178.3333333,13.33333333,23.32333333
-League Of Enthusiastic Losers,29.99,10/13/2021,"yookond.,","yookond.,",0,0,93,48,Adventure,#VALUE!,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
+League Of Enthusiastic Losers,29.99,10/13/2021,"yookond.,","yookond.,",0,0,93,48,Adventure,69,1,1,0,1,0,0,0,1660.002024,30.6437247,53.61291498
 PT Boats Gold,10.99,10/28/2011,N/A,N/A,0,0,0,0,N/A,0,0,0,0,0,0,0,0,1.719557196,0.070110701,30.50527675
 AER Memories of Old,19.99,10/25/2017,"Daedalic Entertainment,","Forgotten Key,",87,155,87,2948,Adventure,3,1,1,1,1,1,1,1,1660.002024,30.6437247,53.61291498
 Lode Runner Legacy,39.99,7/13/2017,"Tozai Games, Inc.,","Tozai Games, Inc., O-TWO inc., ESQUADRA,inc.,",0,0,82,104,Action,0.5,0,1,0,0,0,0,0,3264.582596,57.48230088,45.25634218
