@@ -95,8 +95,6 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 //Game total reviews
 d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
-    var chartSelected = "GenreTot"
-
     dimensions = {
         width: barDiv.clientWidth,
         height: barDiv.clientHeight,
@@ -117,7 +115,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
     var names = dataset.map(d => d.Genre)
 
-    var colors = dataset.map(d => d.Name)
+    var colors = dataset.map(d => d.Genre)
 
     var color = d3.scaleOrdinal()
         .domain(colors)
@@ -140,7 +138,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .attr("y", d => yScale(d.AvgNRAT))
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions.height - dimensions.margin.bottom - yScale(d.AvgNRAT))
-        .attr("fill", d => color(d.Genre)) //"#FF007F"
+        .attr("fill", "blue")//d => color(d.Genre)) FF007F
         .on('mouseover', function(d, i){
             d3.select(this)
                 .attr("stroke-width", 1)
@@ -169,40 +167,95 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .call(yAxisgen.ticks(22))
         .style("transform", `translateX(${dimensions.margin.left}px)`)
 
-    svg.append("text")
+    var changing_axis = svg.append("g")
+        .attr("transform", "translate("+dimensions.margin.left+")")//,"+ dimensions.margin.top +"
+        //.call(yAxisgen)
+
+    var text = svg.append("text")
         .attr("x", (dimensions.width / 2))             
         .attr("y", 20)
         .attr("text-anchor", "middle")  
         .style("font-size", "24px") 
         .style("text-decoration", "underline")  
-        .text("Average Number of Reviews per Genre of Game");
+        .text("Average Number of Reviews All Time per Genre of Game");
 
-    // d3.select('#GenreTot').on('click', function() {
-        
-    // })
+    d3.select('#AvgNRAT').on('click', function() {
 
-    // d3.select("#linda").on('click', function(){
-    //     nameSelected = "Linda"
-    
-    //     //added
-    //     yScale = d3.scaleLinear()
-    //         .domain([0, d3.max(data.map(function(d){return d[nameSelected]}), s => +s)])
-    //         .range([dimensions.boundedHeight,0]);
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["AvgNRAT"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+            
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
 
-    //     //added
-    //     yAxis = d3.axisLeft(yScale)
+        changing_axis.transition()//.call(yAxis)
 
-    //     //added
-    //     changing_axis.transition().call(yAxis)
+        dots.transition()
+            .attr('x', function(d) { return xScale(d.Genre); })
+            .attr('width', xScale.bandwidth)
+            .attr('y', function(d) { return yScale(d["AvgNRAT"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgNRAT"])})
 
-    //     bars.transition()
-    //         .attr('x', function(d) { return xScale(d.year); })
-    //         .attr('width', xScale.bandwidth)
-    //         .attr('y', function(d) { return yScale(d[nameSelected]); })
-    //         .attr('height', function(d){return dimensions.boundedHeight - yScale(d[nameSelected])})
-    //         .style("fill", "steelblue")
-        
-    // })
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Average Number of Reviews All Time per Genre of Game");
+    })
+
+    d3.select("#AvgNR30").on('click', function(){
+
+        yScale.domain([0, 6746])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+        //yAxisgen = d3.axisLeft().scale(yScale)
+            
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+
+        changing_axis.transition()//.call(yAxis)
+
+        dots.transition()
+            .attr('x', function(d) { return xScale(d.Genre); })
+            .attr('width', xScale.bandwidth)
+            .attr('y', function(d) { return yScale(d["AvgNR30"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgNR30"])})
+
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Average Number of Reviews Past 30 Days per Genre of Game");
+    })
+
+    d3.select("#AvgPrice").on('click', function(){
+
+        yScale.domain([0, d3.max(dataset.map(function(d){return d["AvgPrice"]}), s => +s)])
+            .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
+
+        //yAxisgen = d3.axisLeft().scale(yScale)
+            
+        yAxis.call(yAxisgen.ticks(22))
+            .style("transform", `translateX(${dimensions.margin.left}px)`)
+
+        changing_axis.transition()//.call(yAxis)
+
+        dots.transition()
+            .attr('x', function(d) { return xScale(d.Genre); })
+            .attr('width', xScale.bandwidth)
+            .attr('y', function(d) { return yScale(d["AvgPrice"]); })
+            .attr('height', function(d){return dimensions.height - dimensions.margin.bottom - yScale(d["AvgPrice"])})
+
+        text.attr("x", (dimensions.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "24px") 
+            .style("text-decoration", "underline")  
+            .text("Average Price per Genre of Game");
+    })
+
+
 })
 
 //developer total reviews
