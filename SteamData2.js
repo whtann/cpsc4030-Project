@@ -83,13 +83,13 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
                 .style("opacity", .5)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
-            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT}`)
+            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
                 .style("left", (event.pageX+15) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
         })
         .on("click", function(event, d) {
-            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT}`)
+            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
                 .style("left", (event.pageX+15) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
@@ -279,6 +279,18 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         }
     }
 
+    const tooltip = d3.select("#barchart")
+        .append("div")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .attr("class", "tooltip")
+        .style("color", "red")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "10px")
+        .style("padding", "10px")
+
     var svg = d3.select("#barchart")
         .style("width", dimensions2.width)
         .style("height", dimensions2.height)
@@ -321,15 +333,21 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.y))
         .attr("fill", "orange")//d => color(d.Genre)) FF007F
-        .on('mouseover', function(d, i){
+        .on('mouseover', function(event, d){
             d3.select(this)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
+            tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+                .style("left", (event.pageX+30) + "px")
+                .style("top", (event.pageY-28) + "px")
+                .style("visibility", "visible")
         })
-        .on('mouseout', function(d, i){
+        .on('mouseout', function(event, d){
             d3.select(this)
                 .attr("stroke-width", 0)
                 .attr("stroke", "black")
+            tooltip.transition()
+                .style("visibility", "hidden")
         })
 
     var text = svg.append("text")
@@ -370,12 +388,16 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             .attr("width", xScale.bandwidth())
             .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.y))
             .attr("fill", "orange")//d => color(d.Genre)) FF007F
-            .on('mouseover', function(d, i){
+            .on('mouseover', function(event, d){
                 d3.select(this)
                     .attr("stroke-width", 1)
                     .attr("stroke", "black")
+                tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+                    .style("left", (event.pageX+30) + "px")
+                    .style("top", (event.pageY-28) + "px")
+                    .style("visibility", "visible")
             })
-            .on('mouseout', function(d, i){
+            .on('mouseout', function(event, d){
                 d3.select(this)
                     .attr("stroke-width", 0)
                     .attr("stroke", "black")
