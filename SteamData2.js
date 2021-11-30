@@ -2,10 +2,18 @@ var scatterDiv = document.getElementById("scatterplot");
 var barDiv = document.getElementById("barchart");
 var areaDiv = document.getElementById("areachart");
 
+var newData = [];
+
 //Scatterplots
 d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
     //make buttons to chage to different graphs
+    for (var key in dataset[0]){
+        newData.push({
+            name: key,
+            value: +dataset[0][key]
+        })
+    }
 
     var selected = "PerPosRevAT"
     
@@ -86,7 +94,13 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT}`)
                 .style("left", (event.pageX+15) + "px")
                 .style("top", (event.pageY-28) + "px")
-                .style("visibility", "visible")
+                .style("visibility", "visible");
+            for (var key in d){
+                newData.push({
+                    name: key,
+                    value: +d[key]
+                })
+            }
         })
         .on("mouseout", function(event, i) {
             d3.select(this).transition()
@@ -448,7 +462,7 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
 })
 
-//developer total reviews
+
 // d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
 //     var dimensions = {
