@@ -8,12 +8,8 @@ var newData = [];
 d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
     //make buttons to chage to different graphs
-    for (var key in dataset[0]){
-        newData.push({
-            name: key,
-            value: +dataset[0][key]
-        })
-    }
+    newData = dataset[0]
+    console.log(newData)
 
     var selected = "PerPosRevAT"
     
@@ -95,12 +91,8 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
                 .style("left", (event.pageX+15) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible");
-            for (var key in d){
-                newData.push({
-                    name: key,
-                    value: +d[key]
-                })
-            }
+            newData = d;
+            console.log(newData);
         })
         .on("mouseout", function(event, i) {
             d3.select(this).transition()
@@ -463,57 +455,87 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 })
 
 
-// d3.csv("SteamGamesLarger.csv").then(function(dataset) {
+d3.csv("SteamGamesLarger.csv").then(function(dataset) {
+    //code for forces
+    var areaDimensions = {
+        width: areaDiv.clientWidth,
+        height: areaDiv.clientHeight,
+        margin: {
+            top: 50,
+            bottom: 50,
+            right: 50,
+            left: 50
+        }
+    }
 
-//     var dimensions = {
-//         width: areaDiv.clientWidth,
-//         height: areaDiv.clientHeight,
-//         margin: {
-//             top: 50,
-//             bottom: 50,
-//             right: 50,
-//             left: 50
-//         }
-//     }
+    var areaColors = d3.scaleOrdinal()
+    .domain(["Mac", "Windows", "SteamLinux"])
+    .range(d3.schemeCategory10)
 
-//     var colors = dataset.map(d => d.Genre)
-    
-//     var color = d3.scaleOrdinal()
-//         .domain(colors)
-//         .range(d3.schemeCategory10)
+    var svg = d3.select("#areachart")
+        .style("width", areaDimensions.width)
+        .style("height", areaDimensions.height)
+        .append("svg")
+            .attr("width", areaDimensions.width)
+            .attr("height", areaDimensions.height)
 
-//     var svg = d3.select("#areachart")
-//         .style("width", dimensions.width)
-//         .style("height", dimensions.height)
-//         .append("svg")
-//             .attr("width", dimensions.width)
-//             .attr("height", dimensions.height)
+    var text = svg
+            .append('text')
+            .attr("id", 'topbartext')
+            .attr("x", 300)
+            .attr("y", 20)
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("font-family", "sans-serif")
+            .text("Green = Linux; Orange = Windows; Blue = Mac")
 
-//     var nodes = dataset.map(function(d) {
-//         return {
-//             r: d.TNRATRev,
-//             i: d.ID,
-//         }
-//     });
+    var nodes = [{r: newData.Mac, i: "Mac"}, {r: newData.Windows, i: "Windows"}, {r: newData.SteamLinux, i: "SteamLinux"}]
+    console.log(nodes)
 
-//     var layout = d3.forceSimulation(nodes)
-//         .force('center', d3.forceCenter(dimensions.width/2, dimensions.height/2))
-//         .force('collisions', d3.forceCollide().radius(function(d) {return d.TNRATRev}))
-//         .on('tick', ticked)
+    var layout = d3.forceSimulation(nodes)
+        .force('center', d3.forceCenter(areaDimensions.width/2, areaDimensions.height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {return d => d.r}))
+        .force('charge', d3.forceManyBody().strength(-30))
+        .on('tick', ticked)
 
-//     var node = svg.append("g")
-//         .selectAll("circle")
-//         .data(nodes).enter()
-//         .append("circle")
-//         .attr('cx', d => d.x)
-//         .attr('cy', d => d.y)
-//         .attr("fill", d => color(d.i))
-//         .attr("opacity", .5)
-//         .attr("r", d => d.r)
-      
-//     function ticked(){
-//         svg.selectAll("circle")
-//             .attr('cx', d => d.x)
-//             .attr('cy', d => d.y)
-//     }
-// })
+    var node = svg.append("g")
+        .selectAll("circle")
+        .data(nodes).enter()
+        .append("circle")
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr("fill", d => areaColors(d.i))
+        .attr("opacity", .5)
+        .attr("r", d => d.r * 50)
+        
+    function ticked(){
+        svg.selectAll("circle")
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+    }
+
+    d3.select("#scatterplot").on('click', function() {
+        d3.select("#areachart")
+        .selectAll("circle")
+        .remove();
+
+        nodes = [{r: newData.Mac, i: "Mac"}, {r: newData.Windows, i: "Windows"}, {r: newData.SteamLinux, i: "SteamLinux"}]
+        console.log(nodes)
+
+        var layout = d3.forceSimulation(nodes)
+        .force('center', d3.forceCenter(areaDimensions.width/2, areaDimensions.height/2))
+        .force('collisions', d3.forceCollide().radius(function(d) {return d => d.r}))
+        .force('charge', d3.forceManyBody().strength(-30))
+        .on('tick', ticked)
+
+        var node = svg.append("g")
+        .selectAll("circle")
+        .data(nodes).enter()
+        .append("circle")
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y)
+        .attr("fill", d => areaColors(d.i))
+        .attr("opacity", .5)
+        .attr("r", d => d.r * 50)
+    })
+})
