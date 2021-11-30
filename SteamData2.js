@@ -401,6 +401,8 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
                 d3.select(this)
                     .attr("stroke-width", 0)
                     .attr("stroke", "black")
+                tooltip.transition()
+                    .style("visibility", "hidden")
             })
     })
 })
