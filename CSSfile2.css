@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-    padding: 60px;
+    padding: 5px;
     text-align: center;
     background: #171a21;
     color: white;
@@ -25,6 +25,36 @@ body {
 
 .header h1 {
     font-size: 40px;
+}
+
+.graphButtons {
+    background: linear-gradient(-90deg, #5374C0, #202D4A);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.graphButtons button {
+    background-color: transparent;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 10px;
+    cursor: pointer;
+    float: left;
+    box-sizing: border-box;
+}
+
+.graphButtons button:not(:last-child) {
+    border-right: none;
+}
+
+.graphButtons:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.graphButtons button:hover {
+    color: purple;
 }
 
 .row {
@@ -40,7 +70,7 @@ body {
 }
 
 #scatterplot {
-    width: 50vw;
+    width: 40vw;
     display: block;
     border: 2px solid black;
 }
