@@ -1,0 +1,391 @@
+Genre,Price,Value
+Action,$<1,25
+Action,$1-5,45
+Action,$5-10,62
+Action,$10-20,226
+Action,$20-30,110
+Action,$30-40,141
+Action,$40-50,34
+Action,$50-60,78
+Action,$60-70,1
+Action,$70-80,0
+Action,$80-90,0
+Action,$90-100,1
+Action,$>100,21
+Adventure,$<1,9
+Adventure,$1-5,34
+Adventure,$5-10,50
+Adventure,$10-20,159
+Adventure,$20-30,151
+Adventure,$30-40,103
+Adventure,$40-50,4
+Adventure,$50-60,42
+Adventure,$60-70,2
+Adventure,$70-80,2
+Adventure,$80-90,0
+Adventure,$90-100,2
+Adventure,$>100,31
+Anime,$<1,0
+Anime,$1-5,8
+Anime,$5-10,4
+Anime,$10-20,11
+Anime,$20-30,9
+Anime,$30-40,4
+Anime,$40-50,8
+Anime,$50-60,8
+Anime,$60-70,0
+Anime,$70-80,0
+Anime,$80-90,0
+Anime,$90-100,0
+Anime,$>100,0
+Casual,$<1,28
+Casual,$1-5,61
+Casual,$5-10,44
+Casual,$10-20,73
+Casual,$20-30,72
+Casual,$30-40,19
+Casual,$40-50,10
+Casual,$50-60,28
+Casual,$60-70,3
+Casual,$70-80,1
+Casual,$80-90,0
+Casual,$90-100,0
+Casual,$>100,9
+Choose Your Own Adventure,$<1,0
+Choose Your Own Adventure,$1-5,2
+Choose Your Own Adventure,$5-10,2
+Choose Your Own Adventure,$10-20,18
+Choose Your Own Adventure,$20-30,3
+Choose Your Own Adventure,$30-40,9
+Choose Your Own Adventure,$40-50,1
+Choose Your Own Adventure,$50-60,3
+Choose Your Own Adventure,$60-70,1
+Choose Your Own Adventure,$70-80,0
+Choose Your Own Adventure,$80-90,1
+Choose Your Own Adventure,$90-100,0
+Choose Your Own Adventure,$>100,1
+Comedy,$<1,4
+Comedy,$1-5,5
+Comedy,$5-10,4
+Comedy,$10-20,17
+Comedy,$20-30,4
+Comedy,$30-40,3
+Comedy,$40-50,0
+Comedy,$50-60,4
+Comedy,$60-70,0
+Comedy,$70-80,1
+Comedy,$80-90,0
+Comedy,$90-100,0
+Comedy,$>100,0
+Development/Educational,$<1,1
+Development/Educational,$1-5,2
+Development/Educational,$5-10,7
+Development/Educational,$10-20,13
+Development/Educational,$20-30,4
+Development/Educational,$30-40,52
+Development/Educational,$40-50,6
+Development/Educational,$50-60,1
+Development/Educational,$60-70,1
+Development/Educational,$70-80,11
+Development/Educational,$80-90,0
+Development/Educational,$90-100,0
+Development/Educational,$>100,5
+Early Access,$<1,1
+Early Access,$1-5,15
+Early Access,$5-10,15
+Early Access,$10-20,98
+Early Access,$20-30,53
+Early Access,$30-40,12
+Early Access,$40-50,8
+Early Access,$50-60,4
+Early Access,$60-70,0
+Early Access,$70-80,0
+Early Access,$80-90,0
+Early Access,$90-100,0
+Early Access,$>100,2
+Exploration/Open World,$<1,1
+Exploration/Open World,$1-5,7
+Exploration/Open World,$5-10,9
+Exploration/Open World,$10-20,52
+Exploration/Open World,$20-30,50
+Exploration/Open World,$30-40,15
+Exploration/Open World,$40-50,1
+Exploration/Open World,$50-60,16
+Exploration/Open World,$60-70,1
+Exploration/Open World,$70-80,1
+Exploration/Open World,$80-90,0
+Exploration/Open World,$90-100,0
+Exploration/Open World,$>100,1
+Fantasy,$<1,1
+Fantasy,$1-5,0
+Fantasy,$5-10,0
+Fantasy,$10-20,15
+Fantasy,$20-30,3
+Fantasy,$30-40,5
+Fantasy,$40-50,0
+Fantasy,$50-60,0
+Fantasy,$60-70,1
+Fantasy,$70-80,0
+Fantasy,$80-90,0
+Fantasy,$90-100,0
+Fantasy,$>100,0
+Fighting,$<1,1
+Fighting,$1-5,0
+Fighting,$5-10,2
+Fighting,$10-20,18
+Fighting,$20-30,7
+Fighting,$30-40,1
+Fighting,$40-50,14
+Fighting,$50-60,4
+Fighting,$60-70,0
+Fighting,$70-80,0
+Fighting,$80-90,0
+Fighting,$90-100,0
+Fighting,$>100,1
+Horror,$<1,1
+Horror,$1-5,16
+Horror,$5-10,18
+Horror,$10-20,42
+Horror,$20-30,56
+Horror,$30-40,20
+Horror,$40-50,0
+Horror,$50-60,4
+Horror,$60-70,0
+Horror,$70-80,0
+Horror,$80-90,0
+Horror,$90-100,0
+Horror,$>100,4
+Indie,$<1,18
+Indie,$1-5,54
+Indie,$5-10,42
+Indie,$10-20,101
+Indie,$20-30,62
+Indie,$30-40,31
+Indie,$40-50,4
+Indie,$50-60,16
+Indie,$60-70,3
+Indie,$70-80,1
+Indie,$80-90,0
+Indie,$90-100,0
+Indie,$>100,3
+Multiplayer,$<1,0
+Multiplayer,$1-5,6
+Multiplayer,$5-10,2
+Multiplayer,$10-20,36
+Multiplayer,$20-30,19
+Multiplayer,$30-40,17
+Multiplayer,$40-50,2
+Multiplayer,$50-60,8
+Multiplayer,$60-70,0
+Multiplayer,$70-80,3
+Multiplayer,$80-90,1
+Multiplayer,$90-100,0
+Multiplayer,$>100,2
+Music/Rhythm/Great Soundtrack,$<1,0
+Music/Rhythm/Great Soundtrack,$1-5,8
+Music/Rhythm/Great Soundtrack,$5-10,18
+Music/Rhythm/Great Soundtrack,$10-20,21
+Music/Rhythm/Great Soundtrack,$20-30,8
+Music/Rhythm/Great Soundtrack,$30-40,1
+Music/Rhythm/Great Soundtrack,$40-50,4
+Music/Rhythm/Great Soundtrack,$50-60,3
+Music/Rhythm/Great Soundtrack,$60-70,0
+Music/Rhythm/Great Soundtrack,$70-80,0
+Music/Rhythm/Great Soundtrack,$80-90,0
+Music/Rhythm/Great Soundtrack,$90-100,1
+Music/Rhythm/Great Soundtrack,$>100,0
+Mystery,$<1,0
+Mystery,$1-5,0
+Mystery,$5-10,2
+Mystery,$10-20,2
+Mystery,$20-30,6
+Mystery,$30-40,7
+Mystery,$40-50,0
+Mystery,$50-60,0
+Mystery,$60-70,1
+Mystery,$70-80,0
+Mystery,$80-90,0
+Mystery,$90-100,0
+Mystery,$>100,0
+N/A,$<1,3
+N/A,$1-5,21
+N/A,$5-10,45
+N/A,$10-20,60
+N/A,$20-30,42
+N/A,$30-40,38
+N/A,$40-50,17
+N/A,$50-60,25
+N/A,$60-70,7
+N/A,$70-80,3
+N/A,$80-90,3
+N/A,$90-100,3
+N/A,$>100,4
+Narrative/Visual Novel/Story Rich,$<1,0
+Narrative/Visual Novel/Story Rich,$1-5,6
+Narrative/Visual Novel/Story Rich,$5-10,8
+Narrative/Visual Novel/Story Rich,$10-20,31
+Narrative/Visual Novel/Story Rich,$20-30,26
+Narrative/Visual Novel/Story Rich,$30-40,14
+Narrative/Visual Novel/Story Rich,$40-50,0
+Narrative/Visual Novel/Story Rich,$50-60,9
+Narrative/Visual Novel/Story Rich,$60-70,0
+Narrative/Visual Novel/Story Rich,$70-80,0
+Narrative/Visual Novel/Story Rich,$80-90,0
+Narrative/Visual Novel/Story Rich,$90-100,0
+Narrative/Visual Novel/Story Rich,$>100,3
+Other,$<1,2
+Other,$1-5,15
+Other,$5-10,20
+Other,$10-20,61
+Other,$20-30,41
+Other,$30-40,12
+Other,$40-50,14
+Other,$50-60,7
+Other,$60-70,0
+Other,$70-80,0
+Other,$80-90,2
+Other,$90-100,3
+Other,$>100,11
+Platformer,$<1,4
+Platformer,$1-5,13
+Platformer,$5-10,7
+Platformer,$10-20,50
+Platformer,$20-30,12
+Platformer,$30-40,11
+Platformer,$40-50,4
+Platformer,$50-60,5
+Platformer,$60-70,0
+Platformer,$70-80,0
+Platformer,$80-90,0
+Platformer,$90-100,0
+Platformer,$>100,1
+Puzzle,$<1,2
+Puzzle,$1-5,9
+Puzzle,$5-10,10
+Puzzle,$10-20,34
+Puzzle,$20-30,19
+Puzzle,$30-40,13
+Puzzle,$40-50,4
+Puzzle,$50-60,2
+Puzzle,$60-70,1
+Puzzle,$70-80,3
+Puzzle,$80-90,0
+Puzzle,$90-100,0
+Puzzle,$>100,0
+Racing,$<1,4
+Racing,$1-5,3
+Racing,$5-10,20
+Racing,$10-20,35
+Racing,$20-30,18
+Racing,$30-40,11
+Racing,$40-50,7
+Racing,$50-60,14
+Racing,$60-70,1
+Racing,$70-80,0
+Racing,$80-90,0
+Racing,$90-100,0
+Racing,$>100,1
+RPG,$<1,5
+RPG,$1-5,12
+RPG,$5-10,50
+RPG,$10-20,167
+RPG,$20-30,61
+RPG,$30-40,71
+RPG,$40-50,8
+RPG,$50-60,55
+RPG,$60-70,1
+RPG,$70-80,1
+RPG,$80-90,2
+RPG,$90-100,0
+RPG,$>100,16
+Sexual Content,$<1,9
+Sexual Content,$1-5,24
+Sexual Content,$5-10,16
+Sexual Content,$10-20,37
+Sexual Content,$20-30,11
+Sexual Content,$30-40,3
+Sexual Content,$40-50,1
+Sexual Content,$50-60,10
+Sexual Content,$60-70,0
+Sexual Content,$70-80,0
+Sexual Content,$80-90,0
+Sexual Content,$90-100,0
+Sexual Content,$>100,2
+Shooter,$<1,5
+Shooter,$1-5,7
+Shooter,$5-10,5
+Shooter,$10-20,24
+Shooter,$20-30,16
+Shooter,$30-40,47
+Shooter,$40-50,11
+Shooter,$50-60,8
+Shooter,$60-70,4
+Shooter,$70-80,0
+Shooter,$80-90,0
+Shooter,$90-100,0
+Shooter,$>100,4
+Simulation/VR,$<1,11
+Simulation/VR,$1-5,15
+Simulation/VR,$5-10,54
+Simulation/VR,$10-20,158
+Simulation/VR,$20-30,138
+Simulation/VR,$30-40,46
+Simulation/VR,$40-50,49
+Simulation/VR,$50-60,58
+Simulation/VR,$60-70,2
+Simulation/VR,$70-80,1
+Simulation/VR,$80-90,3
+Simulation/VR,$90-100,0
+Simulation/VR,$>100,5
+Sports,$<1,1
+Sports,$1-5,5
+Sports,$5-10,6
+Sports,$10-20,16
+Sports,$20-30,4
+Sports,$30-40,9
+Sports,$40-50,3
+Sports,$50-60,45
+Sports,$60-70,0
+Sports,$70-80,0
+Sports,$80-90,0
+Sports,$90-100,0
+Sports,$>100,1
+Strategy,$<1,1
+Strategy,$1-5,21
+Strategy,$5-10,57
+Strategy,$10-20,149
+Strategy,$20-30,106
+Strategy,$30-40,47
+Strategy,$40-50,26
+Strategy,$50-60,114
+Strategy,$60-70,0
+Strategy,$70-80,2
+Strategy,$80-90,0
+Strategy,$90-100,1
+Strategy,$>100,9
+Survival/Tactical,$<1,3
+Survival/Tactical,$1-5,1
+Survival/Tactical,$5-10,11
+Survival/Tactical,$10-20,34
+Survival/Tactical,$20-30,40
+Survival/Tactical,$30-40,13
+Survival/Tactical,$40-50,1
+Survival/Tactical,$50-60,9
+Survival/Tactical,$60-70,0
+Survival/Tactical,$70-80,0
+Survival/Tactical,$80-90,0
+Survival/Tactical,$90-100,1
+Survival/Tactical,$>100,2
+Violent/Crime/War/Zombies,$<1,1
+Violent/Crime/War/Zombies,$1-5,2
+Violent/Crime/War/Zombies,$5-10,4
+Violent/Crime/War/Zombies,$10-20,17
+Violent/Crime/War/Zombies,$20-30,17
+Violent/Crime/War/Zombies,$30-40,6
+Violent/Crime/War/Zombies,$40-50,4
+Violent/Crime/War/Zombies,$50-60,5
+Violent/Crime/War/Zombies,$60-70,0
+Violent/Crime/War/Zombies,$70-80,0
+Violent/Crime/War/Zombies,$80-90,0
+Violent/Crime/War/Zombies,$90-100,0
+Violent/Crime/War/Zombies,$>100,5
