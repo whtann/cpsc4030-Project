@@ -20,9 +20,9 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .style("width", width + margin.left + margin.right)
         .style("height", height + margin.top + margin.bottom)
         .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            // .attr("width", dimensions.width)
-            // .attr("height", dimensions.height)
+            //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height)
 
 // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
 var myGroups = d3.map(dataset, function(d){return d.Price})
