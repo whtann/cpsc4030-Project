@@ -8,6 +8,7 @@ const Genre = ["Action", "Adventure", "Anime", "Casual", "Choose Your Own Advent
 "Mystery", "N/A", "Narrative/Visual Novel/Story Rich", "Other", "Platformer", 
 "Puzzle", "Racing", "RPG", "Sexual Content", "Shooter", "Simulation", "Sports", 
 "Strategy", "Survival/Tactical", "Violent/Crime/War/Zombies"];
+const GenreSet = new Set();
 
 var newData = [];
 var currentData = [];
@@ -43,7 +44,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     var xAccessor = d => d.Price
     var yAccessor = d => d.PerPosRevAT
     var xAccessorNew = d => d.Name
-    
+    var genreAccessor = d=> d.Genre
+
     var gameColor = (genre) => {
         switch(genre) {
             case "Action":
@@ -139,6 +141,57 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         }
     }
 
+    var filter_buttons = d3
+        .select("#filteroptions")
+        .selectAll("Genre")
+        .data(Genre)
+        .enter()
+        .append("input")
+        .attr("type", "button")
+        .style("background-color", function(d) {
+            return gameColor(d);
+        })
+        .attr("id", function(d) {
+            return d;
+        })
+        .attr("value", function(d) {
+            return d;
+        })
+
+    d3.select("#filterbuttons") 
+        .selectAll("input")
+        .on("click", function() {
+            var button = d3.select(this);
+            var genre = button.attr("id");
+            if (GenreSet.has(genre)) {
+                GenreSet.delete(genre)
+            }
+            else {
+                GenreSet.add(genre)
+            }
+            d3.select("#filteroptions")
+                .selectAll("input")
+                .style("background-color", (d)=> {
+                    if(GenreSet.has(d)) {
+                        return myColor(d);
+                    }
+                    else {
+                        return "gray";
+                    }
+                })
+            dots
+                .transition()
+                .duration(200)
+                .attr("r", (d)=> {
+                    if(GenreSet.has(genreAccessor(d))) {
+                        return 3;
+                    }
+                    else {
+                        return 0;
+                    }
+                })
+        })
+    
     var xScale = d3.scaleLinear()
         .domain([0, d3.max(dataset.map(function(d){return d.Price}), s => +s)])//d3.extent(dataset, xAccessor))
         .range([dimensions.margin.left, dimensions.width - dimensions.margin.right])
@@ -229,6 +282,21 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .style("text-decoration", "underline")  
         .text("Positivity Ratio All Time vs Price");
 
+    var ylabel = svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -(dimensions.height/2))
+        .attr("y", 20)
+        .attr("fill", "black")
+        .text("% Positive Review All Time")
+    
+    var xlabel = svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", dimensions.width / 2)
+        .attr("y", dimensions.height - 5)
+        .attr("fill", "black")
+        .text("Price in USD")
+
     d3.select('#PricePosAT').on('click', function() {
 
         var selected = "PerPosRevAT"
@@ -254,9 +322,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Positivity Ratio All Time vs Price");
-    })
 
-    d3.select(".filters")
+        xlabel.text("Price in USD")
+        ylabel.text("% Positive Review All Time")
+    })
 
     d3.select('#PricePos30').on('click', function() {
 
@@ -283,6 +352,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Positivity Ratio over the Last 30 Days");
+
+        xlabel.text("Price in USD")
+        ylabel.text("% Positive Review Over Last 30 Days")
     })
 
     d3.select('#PriceMemory').on('click', function() {
@@ -310,6 +382,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Storage Requirement vs Price");
+
+        xlabel.text("Price in USD")
+        ylabel.text("Size in GB")
     })
 
     d3.select('#MaxScale').on('click', function() {
