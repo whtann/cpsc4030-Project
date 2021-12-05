@@ -486,7 +486,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             top: 50,
             bottom: 50,
             right: 50,
-            left: 100
+            left: 70
         }
     }
 
@@ -531,12 +531,12 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .attr("y", 7)
         .attr("x", 0)
         //.attr("transform", "rotate(-65)")
-        .style("font-size", "12px")
+        .style("font-size", "8px")
 
     var yAxis = svg.append("g")
-        .call(yAxisgen.ticks(20))
+        .call(yAxisgen.ticks(10))
         .style("transform", `translateX(${dimensions2.margin.left}px)`)
-        .style("font-size", "12px")
+        .style("font-size", "8px")
 
     var xSubgroup = d3.scaleBand()
         .domain(elements[0].values.map(function(d){return d.Game}))
@@ -593,25 +593,25 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     var text2 = svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "middle")
-        .attr("x", dimensions2.width - 250)
+        .attr("x", dimensions2.width - dimensions2.margin.left - dimensions2.margin.right)
         .attr("y", dimensions2.height - 6)
         .text("Ratings of the Selected Games")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
 
     var text3 = svg.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "middle")
-        .attr("x", -350)
+        .attr("x", -250)
         .attr("y", 8)
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Number of Reviews")
-        .style("font-size", "20px")
+        .style("font-size", "15px")
 
-    leg1 = svg.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
-    leg2 = svg.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
-    legt1 = svg.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
-    legt2 = svg.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+    // leg1 = svg.append("circle").attr("cx",dimensions2.margin.left-90).attr("cy",35).attr("r", 6).style("fill", "blue")
+    // leg2 = svg.append("circle").attr("cx",dimensions2.margin.left).attr("cy",35).attr("r", 6).style("fill", "red")
+    // legt1 = svg.append("text").attr("x", dimensions2.margin.left-80).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "9px").attr("alignment-baseline","middle")
+    // legt2 = svg.append("text").attr("x", dimensions2.margin.left+10).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "9px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
@@ -620,14 +620,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .remove()
     
         var elements = [
-            {key: "Number Reviews <bv> All Time",
+            {key: "Number Reviews \n All Time",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNRAT},
                     {Game: newData.Name, height: newData.TNRAT}
                 ]
             },
-            {key: "Number Reviews <bv> Last 30 Days",
+            {key: "Number Reviews \n Last 30 Days",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNR30},
@@ -641,7 +641,6 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .range([dimensions2.margin.left, dimensions2.width - dimensions2.margin.right])
             .padding(0.2)
 
-
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(elements[0].values.map(function(d){return d.height}))]) 
             .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
@@ -654,7 +653,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .range([0, xScale.bandwidth()])
             .padding([0.05])
 
-        bars = svg.selectAll("rect")
+        svg.selectAll("rect")
         .data(elements)
         .enter().append("g")
         .attr("class", "g")
@@ -672,7 +671,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             d3.select(this)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
-                tooltip.html(`${d.Game} <br> Total Reviews All Time: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+                tooltip.html(`${d.Game} <br> Total Reviews: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
                 .style("left", (event.pageX+30) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
@@ -685,10 +684,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 .style("visibility", "hidden")
         })
 
-        leg1.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
-        leg2.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
-        legt1.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
-        legt2.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+        // leg1.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
+        // leg2.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
+        // legt1.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+        // legt2.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
     })
 })
 
