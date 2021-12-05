@@ -471,14 +471,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     
     var elements = [
-        {key: "Number Reviews All Time",
+        {key: "All Time",
         values: 
             [
                 {Game: currentData.Name, height: currentData.TNRAT},
                 {Game: newData.Name, height: newData.TNRAT}
             ]
         },
-        {key: "Number Reviews Last 30 Days",
+        {key: "30 Days",
         values: 
             [
                 {Game: currentData.Name, height: currentData.TNR30},
@@ -491,7 +491,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         width: barDiv.clientWidth,
         height: barDiv.clientHeight,
         margin: {
-            top: 50,
+            top: 70,
             bottom: 50,
             right: 50,
             left: 70
@@ -530,7 +530,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .padding(0.2)
 
     var yScale = d3.scaleLinear()
-        .domain([0, d3.max(elements[0].values.map(function(d){return d.height}))]) 
+        .domain([0, d3.max(elements[0].values.map(function(d){return +d.height}))]) 
         .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
     var xAxisgen = d3.axisBottom().scale(xScale)
@@ -543,12 +543,12 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .attr("y", 7)
         .attr("x", 0)
         //.attr("transform", "rotate(-65)")
-        .style("font-size", "8px")
+        .style("font-size", "14px")
 
     var yAxis = svg.append("g")
         .call(yAxisgen.ticks(10))
         .style("transform", `translateX(${dimensions2.margin.left}px)`)
-        .style("font-size", "8px")
+        .style("font-size", "10px")
 
     var xSubgroup = d3.scaleBand()
         .domain(elements[0].values.map(function(d){return d.Game}))
@@ -581,7 +581,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             d3.select(this)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
-            tooltip.html(`${d.Game} <br> Total Reviews All Time: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+            tooltip.html(`${d.Game} <br> Total Reviews: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
                 .style("left", (event.pageX+30) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
@@ -605,7 +605,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     var text2 = svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "middle")
-        .attr("x", dimensions2.width - dimensions2.margin.left - dimensions2.margin.right)
+        .attr("x", dimensions2.width - dimensions2.margin.left - dimensions2.margin.right - 60)
         .attr("y", dimensions2.height - 6)
         .text("Ratings of the Selected Games")
         .style("font-size", "15px")
@@ -620,26 +620,38 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .text("Number of Reviews")
         .style("font-size", "15px")
 
-    // leg1 = svg.append("circle").attr("cx",dimensions2.margin.left-90).attr("cy",35).attr("r", 6).style("fill", "blue")
-    // leg2 = svg.append("circle").attr("cx",dimensions2.margin.left).attr("cy",35).attr("r", 6).style("fill", "red")
-    // legt1 = svg.append("text").attr("x", dimensions2.margin.left-80).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "9px").attr("alignment-baseline","middle")
-    // legt2 = svg.append("text").attr("x", dimensions2.margin.left+10).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "9px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
+    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "12px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(elements[0].values[1].Game).style("font-size", "12px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
         d3.select("#barchart")
             .selectAll("rect")
             .remove()
+
+        d3.select("#barchart")
+            .selectAll("circle")
+            .remove()
+
+        d3.select("#barchart")
+            .selectAll("text")
+            .remove()
+
+        d3.select("#barchart")
+            .selectAll("line")
+            .remove()
     
-        var elements = [
-            {key: "Number Reviews All Time",
+        elements = [
+            {key: "All Time",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNRAT},
                     {Game: newData.Name, height: newData.TNRAT}
                 ]
             },
-            {key: "Number Reviews Last 30 Days",
+            {key: "30 Days",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNR30},
@@ -658,7 +670,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .padding(0.2)
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(elements[0].values.map(function(d){return d.height}))]) 
+            .domain([0, d3.max(elements[0].values.map(function(d){return +d.height}))]) 
             .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
         var xAxisgen = d3.axisBottom().scale(xScale)
@@ -668,6 +680,20 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .domain(elements[0].values.map(function(d){return d.Game}))
             .range([0, xScale.bandwidth()])
             .padding([0.05])
+        
+        xAxis = svg.append("g")
+            .call(xAxisgen.ticks(2))
+            .style("transform", `translateY(${dimensions2.height - dimensions2.margin.bottom}px)`) 
+            .selectAll("text")
+            .attr("y", 7)
+            .attr("x", 0)
+            //.attr("transform", "rotate(-65)")
+            .style("font-size", "14px")
+
+        yAxis = svg.append("g")
+            .call(yAxisgen)
+            .style("transform", `translateX(${dimensions2.margin.left}px)`)
+            .style("font-size", "10px")
 
         bars = svg.selectAll("rect")
             .data(elements)
@@ -700,10 +726,37 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 .style("visibility", "hidden")
         })
 
-        // leg1.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
-        // leg2.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
-        // legt1.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
-        // legt2.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+        var text = svg.append("text")
+            .attr("x", (dimensions2.width / 2))             
+            .attr("y", 20)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "20px") 
+            .style("text-decoration", "underline")  
+            .text("Reviews of Selected Games")
+    
+        var text2 = svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "middle")
+            .attr("x", dimensions2.width - dimensions2.margin.left - dimensions2.margin.right - 60)
+            .attr("y", dimensions2.height - 6)
+            .text("Ratings of the Selected Games")
+            .style("font-size", "15px")
+    
+        var text3 = svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "middle")
+            .attr("x", -250)
+            .attr("y", 8)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Number of Reviews")
+            .style("font-size", "15px")
+
+
+        svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
+        svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "12px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(elements[0].values[1].Game).style("font-size", "12px").attr("alignment-baseline","middle")
     })
 })
 
