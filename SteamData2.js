@@ -4,6 +4,7 @@ var heatDiv = document.getElementById("heatmap");
 
 var newData = [];
 var currentData = [];
+var elements = [];
 
 //Scatterplots
 d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
@@ -11,9 +12,6 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     //make buttons to chage to different graphs
     currentData = dataset[12]
     newData = dataset[7]
-
-    console.log(newData)
-    console.log(currentData)
 
     var selected = "PerPosRevAT"
     
@@ -98,10 +96,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
 
-            newData = currentData
-            currentData = d;
-            console.log(newData)
-            console.log(currentData)
+            currentData = newData
+            newData = d;
         })
         // .on("mouseout", function(event, i) {
         //     d3.select(this).transition()
@@ -304,8 +300,6 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         }
     ]
 
-    console.log(elements)
-
     dimensions2 = {
         width: barDiv.clientWidth,
         height: barDiv.clientHeight,
@@ -337,6 +331,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .append("svg")
             .attr("width", dimensions2.width + dimensions2.margin.left + dimensions2.margin.right)
             .attr("height", dimensions2.height + dimensions2.margin.left + dimensions2.margin.right)
+        
     
     var xScale = d3.scaleBand()
         .domain(labels) 
@@ -344,7 +339,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .padding(0.2)
 
     var yScale = d3.scaleLinear()
-        .domain([0, 50000]) 
+        .domain([0, d3.max(elements[0].values.map(function(d){return d.height}))]) 
         .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
     var xAxisgen = d3.axisBottom().scale(xScale)
@@ -357,12 +352,12 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .attr("y", 7)
         .attr("x", 0)
         //.attr("transform", "rotate(-65)")
-        .style("font-size", "20px")
+        .style("font-size", "12px")
 
     var yAxis = svg.append("g")
         .call(yAxisgen.ticks(20))
         .style("transform", `translateX(${dimensions2.margin.left}px)`)
-        .style("font-size", "16px")
+        .style("font-size", "12px")
 
     var xSubgroup = d3.scaleBand()
         .domain(elements[0].values.map(function(d){return d.Game}))
@@ -375,7 +370,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     
     var color = d3.scaleOrdinal()
         .domain(colors)
-        .range(d3.schemeCategory10)
+        .range(["blue", "red"])
 
     var bars = svg.selectAll("rect")
         .data(elements)
@@ -395,7 +390,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             d3.select(this)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
-            tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+            tooltip.html(`${d.Game} <br> Total Reviews All Time: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
                 .style("left", (event.pageX+30) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
@@ -412,15 +407,38 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .attr("x", (dimensions2.width / 2))             
         .attr("y", 20)
         .attr("text-anchor", "middle")  
-        .style("font-size", "24px") 
+        .style("font-size", "20px") 
         .style("text-decoration", "underline")  
-        .text("Positivity Ratio of the Game Selected");
+        .text("Reviews of Selected Games")
+
+    var text2 = svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "middle")
+        .attr("x", dimensions2.width - 250)
+        .attr("y", dimensions2.height - 6)
+        .text("Ratings of the Selected Games")
+        .style("font-size", "20px")
+
+    var text3 = svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "middle")
+        .attr("x", -350)
+        .attr("y", 8)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Number of Reviews")
+        .style("font-size", "20px")
+
+    leg1 = svg.append("circle").attr("cx",80).attr("cy",35).attr("r", 6).style("fill", "blue")
+    leg2 = svg.append("circle").attr("cx",260).attr("cy",35).attr("r", 6).style("fill", "red")
+    legt1 = svg.append("text").attr("x", 90).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "15px").attr("alignment-baseline","middle")
+    legt2 = svg.append("text").attr("x", 270).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "15px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
         d3.select("#barchart")
             .selectAll("rect")
-            .remove();
+            .remove()
     
         var elements = [
             {key: "Number Reviews All Time",
@@ -446,7 +464,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
 
         var yScale = d3.scaleLinear()
-            .domain([0, 50000]) 
+            .domain([0, d3.max(elements[0].values.map(function(d){return d.height}))]) 
             .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
         var xAxisgen = d3.axisBottom().scale(xScale)
@@ -475,7 +493,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             d3.select(this)
                 .attr("stroke-width", 1)
                 .attr("stroke", "black")
-            tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+                tooltip.html(`${d.Game} <br> Total Reviews All Time: ${d.height}`)// <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
                 .style("left", (event.pageX+30) + "px")
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
@@ -487,6 +505,11 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             tooltip.transition()
                 .style("visibility", "hidden")
         })
+
+        leg1.append("circle").attr("cx",80).attr("cy",35).attr("r", 6).style("fill", "blue")
+        leg2.append("circle").attr("cx",260).attr("cy",35).attr("r", 6).style("fill", "red")
+        legt1.append("text").attr("x", 90).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "15px").attr("alignment-baseline","middle")
+        legt2.append("text").attr("x", 270).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "15px").attr("alignment-baseline","middle")
     })
 })
 
