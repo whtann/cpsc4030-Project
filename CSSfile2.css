@@ -44,7 +44,7 @@ body {
 }
 
 .row {
-    height: 49vh;
+    height: 40vh;
     display: block;
 }
 
@@ -52,7 +52,7 @@ body {
     float: left;
     width: 40vw;
     padding: 5px;
-    height: 99vh;
+    height: 80vh;
     display: block;
 }
 
@@ -60,7 +60,7 @@ body {
     float: left;
     width: 15vw;
     padding: 5px;
-    height: 99vh;
+    height: 80vh;
     display: block;
 }
 
