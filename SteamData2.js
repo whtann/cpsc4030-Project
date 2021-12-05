@@ -7,7 +7,7 @@ const Genre = ["Action", "Adventure", "Anime", "Casual", "Choose Your Own Advent
 "Fantasy", "Fighting", "Horror", "Indie", "Multiplayer", "Music/Rhythm/Great Soundtrack",
 "Mystery", "N/A", "Narrative/Visual Novel/Story Rich", "Other", "Platformer", 
 "Puzzle", "Racing", "RPG", "Sexual Content", "Shooter", "Simulation", "Sports", 
-"Strategy", "Survival/Tactical", "Violent/Crime/War/Zombies"];
+"Strategy", "Survival/Tactical", "Violent/Crime/War/Zombies", "All"];
 const GenreSet = new Set();
 
 var newData = [];
@@ -135,14 +135,15 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             case "Violent/Crime/War/Zombies":
                 return "#5c3c92"
                 break;
+            case "All":
+                return "#123456"
             default:
                 return "#F8B195"
                 break;
         }
     }
 
-    var filter_buttons = d3
-        .select("#filteroptions")
+    var filter_buttons = d3.select("#filteroptions")
         .selectAll("Genre")
         .data(Genre)
         .enter()
@@ -156,40 +157,6 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         })
         .attr("value", function(d) {
             return d;
-        })
-
-    d3.select("#filterbuttons") 
-        .selectAll("input")
-        .on("click", function() {
-            var button = d3.select(this);
-            var genre = button.attr("id");
-            if (GenreSet.has(genre)) {
-                GenreSet.delete(genre)
-            }
-            else {
-                GenreSet.add(genre)
-            }
-            d3.select("#filteroptions")
-                .selectAll("input")
-                .style("background-color", (d)=> {
-                    if(GenreSet.has(d)) {
-                        return myColor(d);
-                    }
-                    else {
-                        return "gray";
-                    }
-                })
-            dots
-                .transition()
-                .duration(200)
-                .attr("r", (d)=> {
-                    if(GenreSet.has(genreAccessor(d))) {
-                        return 3;
-                    }
-                    else {
-                        return 0;
-                    }
-                })
         })
     
     var xScale = d3.scaleLinear()
@@ -262,6 +229,47 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             tooltip.transition()
                 .style("visibility", "hidden")
         })
+
+        //changes genreset and dot
+        d3.select("#filteroptions") 
+            .selectAll("input")
+            .on("click", function() {
+                var button = d3.select(this);
+                var genre = button.attr("id");
+                if (GenreSet.has(genre)) {
+                    if (genre == "All") {
+                        Genre.forEach((i) => GenreSet.delete(i))
+                    }
+                    GenreSet.delete(genre)
+                }
+                else {
+                    GenreSet.add(genre)
+                    if (GenreSet.has("All")) {
+                        Genre.forEach((i) => GenreSet.add(i))
+                    }
+                }
+                d3.select("#filteroptions") 
+                .selectAll("input")
+                .style("background-color", (d) => {
+                    if(GenreSet.has(d)) {
+                        return gameColor(d);
+                    }
+                    else {
+                        return "gray";
+                    }
+                })
+                dots
+                    .transition()
+                    .duration(200)
+                    .attr("r", (d)=> {
+                        if(GenreSet.has(genreAccessor(d))) {
+                            return 3;
+                        }
+                        else {
+                            return 0;
+                        }
+                    })
+        });
 
     // var Input = window.prompt("Enter Scatterplot Scale")
 
