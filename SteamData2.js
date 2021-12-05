@@ -622,8 +622,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "red")
     svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "blue")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(currentData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(newData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
@@ -763,8 +763,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(newData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(currentData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
     })
 })
 
