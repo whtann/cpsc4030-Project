@@ -13,6 +13,7 @@ const GenreSet = new Set();
 var newData = [];
 var currentData = [];
 var elements = [];
+var selected = "PerPosRevAT"
 
 //Scatterplots
 d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
@@ -307,9 +308,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PricePosAT').on('click', function() {
 
-        var selected = "PerPosRevAT"
+        selected = "PerPosRevAT"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRevAT"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
@@ -337,9 +338,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PricePos30').on('click', function() {
 
-        var selected = "PerPosRev30"
+        selected = "PerPosRev30"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRev30"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
@@ -367,9 +368,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PriceMemory').on('click', function() {
 
-        var selected = "Storage"
+        selected = "Storage"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["Storage"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
