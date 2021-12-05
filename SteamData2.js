@@ -2,6 +2,13 @@ var scatterDiv = document.getElementById("scatterplot");
 var barDiv = document.getElementById("barchart");
 var heatDiv = document.getElementById("heatmap");
 
+const Genre = ["Action", "Adventure", "Anime", "Casual", "Choose Your Own Adventure",
+"Comedy", "Development/Educational", "Early Access", "Exploration/Open World",
+"Fantasy", "Fighting", "Horror", "Indie", "Multiplayer", "Music/Rhythm/Great Soundtrack",
+"Mystery", "N/A", "Narrative/Visual Novel/Story Rich", "Other", "Platformer", 
+"Puzzle", "Racing", "RPG", "Sexual Content", "Shooter", "Simulation", "Sports", 
+"Strategy", "Survival/Tactical", "Violent/Crime/War/Zombies"];
+
 var newData = [];
 var currentData = [];
 
@@ -38,6 +45,101 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     var xAccessor = d => d.Price
     var yAccessor = d => d.PerPosRevAT
     var xAccessorNew = d => d.Name
+    
+    var gameColor = (genre) => {
+        switch(genre) {
+            case "Action":
+                return "#C0C0C0";
+                break;
+            case "Adventure":
+                return "#808080"
+                break;
+            case "Anime":
+                return "#000000"
+                break;
+            case "Casual":
+                return "#FF0000"
+                break;
+            case "Choose Your Own Adventure":
+                return "#800000"
+                break;
+            case "Comedy":
+                return "#FFFF00"
+                break;
+            case "Development/Educational":
+                return "#808000"
+                break;
+            case "Early Access":
+                return "#00FF00"
+                break;
+            case "Exploration/Open World":
+                return "#008000"
+                break;
+            case "Fantasy":
+                return "#00FFFF"
+                break;
+            case "Fighting":
+                return "#008080"
+                break;
+            case "Horror":
+                return "#0000FF"
+                break;
+            case "Indie":
+                return "#000080"
+                break;
+            case "Multiplayer":
+                return "#FF00FF"
+                break;
+            case "Mystery":
+                return "#800080"
+                break;
+            case "N/A":
+                return "#F8B195"
+                break;
+            case "Narrative/Visual Novel/Story Rich":
+                return "#F67280"
+                break;
+            case "Other":
+                return "#C06C84"
+                break;
+            case "Platformer":
+                return "#6C5B7B"
+                break;
+            case "Puzzle":
+                return "#355C7D"
+                break;
+            case "Racing":
+                return "#E5FCC2"
+                break;
+            case "RPG":
+                return "#9DE0AD"
+                break;
+            case "Sexual Content":
+                return "#45ADA8"
+                break;
+            case "Shooter":
+                return "#547980"
+                break;
+            case "Simulation/VR":
+                return "#594F4F"
+                break;
+            case "Sports":
+                return "#FE4365"
+                break;
+            case "Strategy":
+                return "#F26B38"
+                break;
+            case "Survival/Tactical":
+                return "#2F9599"
+                break;
+            case "Violent/Crime/War/Zombies":
+                return "#5c3c92"
+                break;
+            default:
+                return "#F8B195"
+                break;
+        }
+    }
 
     var xScale = d3.scaleLinear()
         .domain([0, d3.max(dataset.map(function(d){return d.Price}), s => +s)])//d3.extent(dataset, xAccessor))
@@ -78,7 +180,7 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .append("circle")
             .attr("cx", d => xScale(xAccessor(d)))
             .attr("cy", d => yScale(yAccessor(d)))
-            .attr("fill", "red")
+            .attr("fill", d => gameColor(d.Genre))
             .attr("r", 3)
             .style("opacity", 1)
         .on("mouseover", function(event, d) {
@@ -87,10 +189,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 .style("opacity", .5)
                 .attr("stroke-width", 3)
                 .attr("stroke", "black")
-            // tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
-            //     .style("left", (event.pageX+15) + "px")
-            //     .style("top", (event.pageY-28) + "px")
-            //     .style("visibility", "visible")
+            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
+                .style("left", (event.pageX+15) + "px")
+                .style("top", (event.pageY-28) + "px")
+                .style("visibility", "visible")
         })
         .on("click", function(event, d) {
             tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
@@ -103,14 +205,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             console.log(newData)
             console.log(currentData)
         })
-        // .on("mouseout", function(event, i) {
-        //     d3.select(this).transition()
-        //         .attr("r", 3)
-        //         .style("opacity", 1)
-        //         .attr("stroke-width", 0)
-        //     tooltip.transition()
-        //         .style("visibility", "hidden")
-        // })
+        .on("mouseout", function(event, i) {
+            d3.select(this).transition()
+                .attr("r", 3)
+                .style("opacity", 1)
+                .attr("stroke-width", 0)
+            tooltip.transition()
+                .style("visibility", "hidden")
+        })
 
     // var Input = window.prompt("Enter Scatterplot Scale")
 
@@ -157,6 +259,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("text-decoration", "underline")  
             .text("Positivity Ratio All Time vs Price");
     })
+
+    d3.select(".filters")
 
     d3.select('#PricePos30').on('click', function() {
 
