@@ -13,6 +13,7 @@ const GenreSet = new Set();
 var newData = [];
 var currentData = [];
 var elements = [];
+var selected = "PerPosRevAT"
 
 //Scatterplots
 d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
@@ -307,9 +308,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PricePosAT').on('click', function() {
 
-        var selected = "PerPosRevAT"
+        selected = "PerPosRevAT"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRevAT"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
@@ -337,9 +338,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PricePos30').on('click', function() {
 
-        var selected = "PerPosRev30"
+        selected = "PerPosRev30"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["PerPosRev30"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
@@ -367,9 +368,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     d3.select('#PriceMemory').on('click', function() {
 
-        var selected = "Storage"
+        selected = "Storage"
 
-        yScale.domain([0, d3.max(dataset.map(function(d){return d["Storage"]}), s => +s)])
+        yScale.domain([0, d3.max(dataset.map(function(d){return d[selected]}), s => +s)])
             .range([dimensions.height - dimensions.margin.bottom, dimensions.margin.top])
                 
         yAxis.call(yAxisgen.ticks(22))
@@ -620,10 +621,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .text("Number of Reviews")
         .style("font-size", "15px")
 
-    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
-    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "12px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(elements[0].values[1].Game).style("font-size", "12px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "red")
+    svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "blue")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
@@ -663,6 +664,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         d3.select("#barselected")
             .style("font-size", "12px")
             .html("Game 1: " + currentData.Name + "<br> Game 2: " + newData.Name);
+
+        var colors = d3.map(elements, function(d){
+            return d.Game
+        })
+            
+        var color = d3.scaleOrdinal()
+            .domain(colors)
+            .range(["blue", "red"])
 
         var xScale = d3.scaleBand()
             .domain(labels) 
@@ -755,8 +764,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "12px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(elements[0].values[1].Game).style("font-size", "12px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
     })
 })
 
@@ -797,12 +806,12 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .append("g")
             .attr("transform", `translate(${areaDimensions.margin.left}, ${areaDimensions.margin.top})`);
 
+
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var genreAccessor = d => d.Genre
     var myGroups = d3.map(dataset, function(d){return d.Price})
     var myVars = d3.map(dataset, function(d){return d.Genre})
 
-    // Build X scales and axis:
     var x = d3.scaleBand()
         .range([0, areaDimensions.width-areaDimensions.margin.left-areaDimensions.margin.right]) // change for x scaling
         .domain(myGroups)
@@ -813,7 +822,6 @@ d3.csv("HeatMap.csv").then(function(dataset) {
             .call(d3.axisBottom(x).tickSize(0))
             .select(".domain").remove()
 
-    // Build Y scales and axis:
     var y = d3.scaleBand()
         .range([areaDimensions.height-areaDimensions.margin.bottom-areaDimensions.margin.top, 0 ])
         .domain(myVars)
@@ -824,18 +832,15 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .select(".domain").remove()
             
 
-    // Build color scale
     var myColor = d3.scaleSequential()
         .interpolator(d3.interpolate("white", "black"))
         .domain([1,100])
 
-    // create a tooltip
     var tooltip = d3.select("#heattooltip")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
 
-    //Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
         tooltip
             .style("opacity", 1)
@@ -857,7 +862,6 @@ d3.csv("HeatMap.csv").then(function(dataset) {
             .style("opacity", 0.8)
     }
 
-    // add the squares
     svg.selectAll("rect")
         .data(dataset, function(d) {return d.Genre+':'+d.Price;})
         .enter()
@@ -878,6 +882,7 @@ d3.csv("HeatMap.csv").then(function(dataset) {
 
    
     // Add title to graph
+
     svg.append("text")
         .attr("x", 0)
         .attr("y", -50)
@@ -885,7 +890,6 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .style("font-size", "22px")
     // .text("A Heatmap of Games ");
 
-    // Add subtitle to graph
     svg.append("text")
         .attr("x", 0)
         .attr("y", -20)
