@@ -12,28 +12,32 @@
             <h1>CPSC 4030: Purchasing Optimum Steam Games</h1>
             <p>A website created by Jake Badger, Ryan Goldin, and William Tann</p>
         </div>
-
-        <button id="PricePosAT">Positivity Ratio All Time</button> 
-        <button id="PricePos30">Positivity Ratio Last 30 Days</button> 
-        <button id="PriceMemory">Storage and Price</button>
-        <button id="MaxScale">Max Scale</button>
-        <button id="Scale100">100 Max</button>
-        <button id="Scale10">10 Max</button> 
+            <div class="buttons">
+            <button id="PricePosAT">Positivity Ratio All Time</button> 
+            <button id="PricePos30">Positivity Ratio Last 30 Days</button> 
+            <button id="PriceMemory">Storage and Price</button>
+            <button id="MaxScale">Max Scale</button>
+            <button id="Scale100">100 Max</button>
+            <button id="Scale10">10 Max</button> 
+        </div>
         <!-- <button id="AvgNRAT">Average Reviews All Time</button> 
         <button id="AvgNR30">Average Reviews Last 30 Days</button>
         <button id="AvgPrice">Average Price</button>
         <button id="AvgCapacity">Average Storage Requirement</button> -->
 
-        <div class="container">
-            <div class="box-a">
-                <svg id="scatterplot"></svg>
+        <div class="column">
+            <div id="scatterplot"></div>
+        </div>
+        <div class="columnMiddle">
+            <div class="row">
+                <div id="filteroptions"></div>
             </div>
-            <div class="box-c">
-                <svg id="heatmap"></svg>
+            <div class="row">
+                <div id="barchart"></div>
             </div>
-            <div class="box-d">
-                <svg id="barchart"></svg>
-            </div>
+        </div>
+        <div class="column">
+            <div id="heatmap"></div>
         </div>
         
         <script src="SteamData2.js"></script>

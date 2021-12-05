@@ -416,7 +416,7 @@ d3.csv("HeatMap.csv").then(function(dataset) {
             top: 0,
             bottom: 80,
             right: 10,
-            left: 100 //change for space on left
+            left: 200 //change for space on left
         }
     }
 
@@ -424,7 +424,7 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .style("width", areaDimensions.width)
         .style("height", areaDimensions.height)
         .append("svg")
-            .attr("width", areaDimensions.width + areaDimensions.margin.left + areaDimensions.margin.right)
+            .attr("width", areaDimensions.width - areaDimensions.margin.left - areaDimensions.margin.right)
             .attr("height", areaDimensions.height + areaDimensions.margin.top + areaDimensions.margin.bottom)
         .append("g")
             .attr("transform", `translate(${areaDimensions.margin.left}, ${areaDimensions.margin.top})`);

@@ -43,27 +43,52 @@ body {
     grid-area: D;
 }
 
+.row {
+    height: 49vh;
+    display: block;
+}
+
+.column {
+    float: left;
+    width: 40vw;
+    padding: 5px;
+    height: 99vh;
+    display: block;
+}
+
+.columnMiddle {
+    float: left;
+    width: 18vw;
+    padding: 5px;
+    height: 99vh;
+    display: block;
+}
+
 #scatterplot {
+    display: block;
     height: 100%;
-    width: 100%;
+    border: 2px solid black;
+}
+
+#filteroptions {
     display: block;
     border: 2px solid black;
 }
 
 #barchart {
-    grid-area: D;
-    height: 100%;
-    width: 100%;
     display: block;
+    height: 100%;
     border: 2px solid black;
 }
 
 #heatmap {
-    grid-area: C;
-    height: 100%;
-    width: 100%;
     display: block;
+    height: 100%;
     border: 2px solid black;
+    margin-top: 0;
+    margin-bottom: 80;
+    margin-left: 200;
+    margin-right: 10;
 }
 
 .data svg {
