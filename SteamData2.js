@@ -233,6 +233,21 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .style("text-decoration", "underline")  
         .text("Positivity Ratio All Time vs Price");
 
+    var ylabel = svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -(dimensions.height/2))
+        .attr("y", 20)
+        .attr("fill", "black")
+        .text("% Positive Review All Time")
+    
+    var xlabel = svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", dimensions.width / 2)
+        .attr("y", dimensions.height - 5)
+        .attr("fill", "black")
+        .text("Price in USD")
+
     d3.select('#PricePosAT').on('click', function() {
 
         var selected = "PerPosRevAT"
@@ -258,9 +273,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Positivity Ratio All Time vs Price");
-    })
 
-    d3.select(".filters")
+        xlabel.text("Price in USD")
+        ylabel.text("% Positive Review All Time")
+    })
 
     d3.select('#PricePos30').on('click', function() {
 
@@ -287,6 +303,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Positivity Ratio over the Last 30 Days");
+
+        xlabel.text("Price in USD")
+        ylabel.text("% Positive Review Over Last 30 Days")
     })
 
     d3.select('#PriceMemory').on('click', function() {
@@ -314,6 +333,9 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .style("font-size", "24px") 
             .style("text-decoration", "underline")  
             .text("Storage Requirement vs Price");
+
+        xlabel.text("Price in USD")
+        ylabel.text("Size in GB")
     })
 
     d3.select('#MaxScale').on('click', function() {
