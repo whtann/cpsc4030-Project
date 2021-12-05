@@ -511,10 +511,10 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         width: heatDiv.clientWidth,
         height: heatDiv.clientHeight,
         margin: {
-            top: 0,
-            bottom: 80,
+            top: 5,
+            bottom: 20,
             right: 10,
-            left: 200 //change for space on left
+            left: 155 //change for space on left
         }
     }
 
@@ -522,8 +522,8 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .style("width", areaDimensions.width)
         .style("height", areaDimensions.height)
         .append("svg")
-            .attr("width", areaDimensions.width - areaDimensions.margin.left - areaDimensions.margin.right)
-            .attr("height", areaDimensions.height + areaDimensions.margin.top + areaDimensions.margin.bottom)
+            .attr("width", areaDimensions.width)
+            .attr("height", areaDimensions.height)
         .append("g")
             .attr("transform", `translate(${areaDimensions.margin.left}, ${areaDimensions.margin.top})`);
 
@@ -533,99 +533,99 @@ d3.csv("HeatMap.csv").then(function(dataset) {
 
     // Build X scales and axis:
     var x = d3.scaleBand()
-        .range([0, areaDimensions.width-75]) // change for x scaling
+        .range([0, areaDimensions.width-areaDimensions.margin.left-areaDimensions.margin.right]) // change for x scaling
         .domain(myGroups)
         .padding(0.05);
         svg.append("g")
-            .style("font-size", 15)
-            .attr("transform", "translate(0," + areaDimensions.height + ")")
+            .style("font-size", 10)
+            .attr("transform", "translate(0," + (areaDimensions.height-areaDimensions.margin.bottom-areaDimensions.margin.top) + ")")
             .call(d3.axisBottom(x).tickSize(0))
             .select(".domain").remove()
 
     // Build Y scales and axis:
     var y = d3.scaleBand()
-    .range([areaDimensions.height, 0 ])
-    .domain(myVars)
-    .padding(0.05);
+        .range([areaDimensions.height-areaDimensions.margin.bottom-areaDimensions.margin.top, 0 ])
+        .domain(myVars)
+        .padding(0.05);
     svg.append("g")
-    .style("font-size", 15)
-    .call(d3.axisLeft(y).tickSize(0))
-    .select(".domain").remove()
+        .style("font-size", 10)
+        .call(d3.axisLeft(y).tickSize(0))
+        .select(".domain").remove()
 
     // Build color scale
     var myColor = d3.scaleSequential()
-    .interpolator(d3.interpolate("white", "black"))
-    .domain([1,100])
+        .interpolator(d3.interpolate("white", "black"))
+        .domain([1,100])
 
     // create a tooltip
     var tooltip = d3.select("#scatterplot")
-    .append("div")
-    .style("opacity", 0)
-    .attr("class", "tooltip")
-    .style("background-color", "white")
-    .style("border", "solid")
-    .style("border-width", "2px")
-    .style("border-radius", "5px")
-    .style("padding", "5px")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px")
 
     //Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
-    tooltip
-    .style("opacity", 1)
-    d3.select(this)
-    .style("stroke", "red")
-    .style("opacity", 1)
+        tooltip
+            .style("opacity", 1)
+        d3.select(this)
+            .style("stroke", "red")
+            .style("opacity", 1)
     }
     var mousemove = function(event, d) {
-    tooltip
-    .html("The number of games in<br>this price range is: " +d.Value)
-    .style("left", (event.x)/2 + "px")
-    .style("top", (event.y)/2 + "px")
+        tooltip
+            .html("The number of games in<br>this price range is: " +d.Value)
+            .style("left", (event.x)/2 + "px")
+            .style("top", (event.y)/2 + "px")
     }
     var mouseleave = function(d) {
-    tooltip
-    .style("opacity", 0)
-    d3.select(this)
-    .style("stroke", "none")
-    .style("opacity", 0.8)
+        tooltip
+            .style("opacity", 0)
+        d3.select(this)
+            .style("stroke", "none")
+            .style("opacity", 0.8)
     }
 
     // add the squares
     svg.selectAll("rect")
-    .data(dataset, function(d) {return d.Genre+':'+d.Price;})
-    .enter()
-    .append("rect")
-    .attr("x", function(d) {return x(d.Price) })
-    .attr("y", function(d) {return y(d.Genre) })
-    .attr("rx", 4)
-    .attr("ry", 4)
-    .attr("width", x.bandwidth() )
-    .attr("height", y.bandwidth() )
-    .style("fill", function(d) {return myColor(d.Value)})
-    .style("stroke-width", 4)
-    .style("stroke", "none")
-    .style("opacity", 0.8)
-    .on("mouseover", mouseover)
-    .on("mousemove", mousemove)
-    .on("mouseleave", mouseleave)
+        .data(dataset, function(d) {return d.Genre+':'+d.Price;})
+        .enter()
+        .append("rect")
+        .attr("x", function(d) {return x(d.Price) })
+        .attr("y", function(d) {return y(d.Genre) })
+        .attr("rx", 4)
+        .attr("ry", 4)
+        .attr("width", x.bandwidth() )
+        .attr("height", y.bandwidth() )
+        .style("fill", function(d) {return myColor(d.Value)})
+        .style("stroke-width", 4)
+        .style("stroke", "none")
+        .style("opacity", 0.8)
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
 
 
     // Add title to graph
     svg.append("text")
-    .attr("x", 0)
-    .attr("y", -50)
-    .attr("text-anchor", "left")
-    .style("font-size", "22px")
+        .attr("x", 0)
+        .attr("y", -50)
+        .attr("text-anchor", "left")
+        .style("font-size", "22px")
     // .text("A Heatmap of Games ");
 
     // Add subtitle to graph
     svg.append("text")
-    .attr("x", 0)
-    .attr("y", -20)
-    .attr("text-anchor", "left")
-    .style("font-size", "14px")
-    .style("fill", "grey")
-    .style("max-width", 400)
+        .attr("x", 0)
+        .attr("y", -20)
+        .attr("text-anchor", "left")
+        .style("font-size", "14px")
+        .style("fill", "grey")
+        .style("max-width", 400)
     // .text("A short description of the take-away message of this chart.");
 
 })
