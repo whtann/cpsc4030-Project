@@ -1,19 +1,8 @@
 body {
 	background: white;
 	background-size: 400% 400%;
-	height: 100vh;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+	min-height: 100vh;
+    width: 100%;
 }
 
 .header {
@@ -27,34 +16,52 @@ body {
     font-size: 40px;
 }
 
-.row {
-    display: table;
+.container {
+    position: relative;
+    display: grid;
+    height: 80vh;
+    grid-template-areas: 
+    "A A A A A A A A  B B B B  C C C C C C C C"
+    "A A A A A A A A  B B B B  C C C C C C C C"
+    "A A A A A A A A  D D D D  C C C C C C C C"
+    "A A A A A A A A  D D D D  C C C C C C C C";
 }
 
-.column {
-    float: left;
-    width: 46vw;
-    padding: 10px;
-    height: 99.5vh;
-    display: block;
+.box-a {
+    grid-area: A;
+}
+
+.box-b {
+    grid-area: B;
+}
+
+.box-c {
+    grid-area: C;
+}
+
+.box-d {
+    grid-area: D;
 }
 
 #scatterplot {
-    width: 40vw;
+    height: 100%;
+    width: 100%;
     display: block;
     border: 2px solid black;
 }
 
 #barchart {
-    height: 50vh;
-    width: 46.5vw;
+    grid-area: D;
+    height: 100%;
+    width: 100%;
     display: block;
     border: 2px solid black;
 }
 
 #heatmap {
-    height: 50vh;
-    width: 46.5vw;
+    grid-area: C;
+    height: 100%;
+    width: 100%;
     display: block;
     border: 2px solid black;
 }
