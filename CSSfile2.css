@@ -43,6 +43,16 @@ body {
     grid-area: D;
 }
 
+.rowInfo {
+    height: 8vh;
+    margin-bottom: 2px;
+    background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
 .row {
     height: 40vh;
     display: block;

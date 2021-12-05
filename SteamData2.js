@@ -500,6 +500,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     var labels = d3.map(elements, d => d.key)
 
+    const selectedGames = d3.select("#barselected")
+        .style("font-size", "12px")
+        .html("Game 1: " + currentData.Name + "<br> Game 2: " + newData.Name)
+
     const tooltip = d3.select("#barchart")
         .append("div")
         .style("position", "absolute")
@@ -644,6 +648,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             }
         ]
 
+        d3.select("#barselected")
+            .style("font-size", "12px")
+            .html("Game 1: " + currentData.Name + "<br> Game 2: " + newData.Name);
+
         var xScale = d3.scaleBand()
             .domain(labels) 
             .range([dimensions2.margin.left, dimensions2.width - dimensions2.margin.right])
@@ -767,15 +775,10 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .domain([1,100])
 
     // create a tooltip
-    var tooltip = d3.select("#scatterplot")
+    var tooltip = d3.select("#heattooltip")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "5px")
 
     //Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
@@ -787,9 +790,9 @@ d3.csv("HeatMap.csv").then(function(dataset) {
     }
     var mousemove = function(event, d) {
         tooltip
-            .html("The number of games in<br>this price range is: " +d.Value)
-            .style("left", (event.x)/2 + "px")
-            .style("top", (event.y)/2 + "px")
+            .html("The number of games in this price range is: " +d.Value)
+            .style("left", (d3.mouse(this[0]+70)) + "px")
+            .style("top", (d3.mouse(this[1])) + "px")
     }
     var mouseleave = function(d) {
         tooltip

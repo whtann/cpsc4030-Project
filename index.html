@@ -12,23 +12,24 @@
             <h1>CPSC 4030: Purchasing Optimum Steam Games</h1>
             <p>A website created by Jake Badger, Ryan Goldin, and William Tann</p>
         </div>
-        <div class="buttons">
-            <button id="PricePosAT">Positivity Ratio All Time</button> 
-            <button id="PricePos30">Positivity Ratio Last 30 Days</button> 
-            <button id="PriceMemory">Storage and Price</button>
-            <button id="MaxScale">Max Scale</button>
-            <button id="Scale100">100 Max</button>
-            <button id="Scale10">10 Max</button> 
-        </div>
         <!-- <button id="AvgNRAT">Average Reviews All Time</button> 
         <button id="AvgNR30">Average Reviews Last 30 Days</button>
         <button id="AvgPrice">Average Price</button>
         <button id="AvgCapacity">Average Storage Requirement</button> -->
 
         <div class="column">
+            <div class="rowInfo">
+                <button id="PricePosAT">Positivity Ratio All Time</button> 
+                <button id="PricePos30">Positivity Ratio Last 30 Days</button> 
+                <button id="PriceMemory">Storage and Price</button>
+                <button id="MaxScale">Max Scale</button>
+                <button id="Scale100">100 Max</button>
+                <button id="Scale10">10 Max</button> 
+            </div>
             <div id="scatterplot"></div>
         </div>
         <div class="columnMiddle">
+            <div class="rowInfo" id="barselected"></div>
             <div class="row">
                 <div class="filteroptions" id="filteroptions"></div>
             </div>
@@ -37,6 +38,7 @@
             </div>
         </div>
         <div class="column">
+            <div class="rowInfo" id="heattooltip"></div>
             <div id="heatmap"></div>
         </div>
         
