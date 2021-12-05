@@ -628,14 +628,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .remove()
     
         var elements = [
-            {key: "Number Reviews \n All Time",
+            {key: "Number Reviews All Time",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNRAT},
                     {Game: newData.Name, height: newData.TNRAT}
                 ]
             },
-            {key: "Number Reviews \n Last 30 Days",
+            {key: "Number Reviews Last 30 Days",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNR30},
@@ -661,11 +661,11 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .range([0, xScale.bandwidth()])
             .padding([0.05])
 
-        svg.selectAll("rect")
-        .data(elements)
-        .enter().append("g")
-        .attr("class", "g")
-        .attr("transform",function(d) { return "translate(" + xScale(d.key) + ",0)"; })
+        bars = svg.selectAll("rect")
+            .data(elements)
+            .enter().append("g")
+            .attr("class", "g")
+            .attr("transform",function(d) { return "translate(" + xScale(d.key) + ",0)"; })
 
         bars.selectAll("rect")
         .data(function(d){return d.values})
