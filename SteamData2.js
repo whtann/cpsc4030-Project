@@ -608,10 +608,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
         .text("Number of Reviews")
         .style("font-size", "20px")
 
-    leg1 = svg.append("circle").attr("cx",80).attr("cy",35).attr("r", 6).style("fill", "blue")
-    leg2 = svg.append("circle").attr("cx",260).attr("cy",35).attr("r", 6).style("fill", "red")
-    legt1 = svg.append("text").attr("x", 90).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "15px").attr("alignment-baseline","middle")
-    legt2 = svg.append("text").attr("x", 270).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "15px").attr("alignment-baseline","middle")
+    leg1 = svg.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
+    leg2 = svg.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
+    legt1 = svg.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+    legt2 = svg.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
@@ -620,14 +620,14 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
             .remove()
     
         var elements = [
-            {key: "Number Reviews All Time",
+            {key: "Number Reviews <bv> All Time",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNRAT},
                     {Game: newData.Name, height: newData.TNRAT}
                 ]
             },
-            {key: "Number Reviews Last 30 Days",
+            {key: "Number Reviews <bv> Last 30 Days",
             values: 
                 [
                     {Game: currentData.Name, height: currentData.TNR30},
@@ -685,10 +685,10 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 .style("visibility", "hidden")
         })
 
-        leg1.append("circle").attr("cx",80).attr("cy",35).attr("r", 6).style("fill", "blue")
-        leg2.append("circle").attr("cx",260).attr("cy",35).attr("r", 6).style("fill", "red")
-        legt1.append("text").attr("x", 90).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "15px").attr("alignment-baseline","middle")
-        legt2.append("text").attr("x", 270).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "15px").attr("alignment-baseline","middle")
+        leg1.append("circle").attr("cx",10).attr("cy",35).attr("r", 6).style("fill", "blue")
+        leg2.append("circle").attr("cx",150).attr("cy",35).attr("r", 6).style("fill", "red")
+        legt1.append("text").attr("x", 20).attr("y", 37).text(elements[0].values[0].Game).style("font-size", "10px").attr("alignment-baseline","middle")
+        legt2.append("text").attr("x", 160).attr("y", 37).text(elements[0].values[1].Game).style("font-size", "10px").attr("alignment-baseline","middle")
     })
 })
 
