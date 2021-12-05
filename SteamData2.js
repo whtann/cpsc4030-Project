@@ -3,13 +3,17 @@ var barDiv = document.getElementById("barchart");
 var heatDiv = document.getElementById("heatmap");
 
 var newData = [];
+var currentData = [];
 
 //Scatterplots
-d3.csv("SteamGamesLarger.csv").then(function(dataset) {
+d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     //make buttons to chage to different graphs
-    newData = dataset[0]
+    currentData = dataset[12]
+    newData = dataset[7]
+
     console.log(newData)
+    console.log(currentData)
 
     var selected = "PerPosRevAT"
     
@@ -81,12 +85,12 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             d3.select(this).transition()
                 .attr("r", 6)
                 .style("opacity", .5)
-                .attr("stroke-width", 1)
+                .attr("stroke-width", 3)
                 .attr("stroke", "black")
-            tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
-                .style("left", (event.pageX+15) + "px")
-                .style("top", (event.pageY-28) + "px")
-                .style("visibility", "visible")
+            // tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
+            //     .style("left", (event.pageX+15) + "px")
+            //     .style("top", (event.pageY-28) + "px")
+            //     .style("visibility", "visible")
         })
         .on("click", function(event, d) {
             tooltip.html(`${d.Name} <br> Price: ${d.Price} <br> Rating: ${d.PerPosRevAT} <br> Size: ${d.Storage} GB`)
@@ -94,8 +98,10 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
                 .style("top", (event.pageY-28) + "px")
                 .style("visibility", "visible")
 
-            newData = d;
-            console.log(newData);
+            newData = currentData
+            currentData = d;
+            console.log(newData)
+            console.log(currentData)
         })
         // .on("mouseout", function(event, i) {
         //     d3.select(this).transition()
@@ -262,10 +268,42 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
 
 })
 
-//Game total reviews
-d3.csv("SteamGamesLarger.csv").then(function(dataset) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//barchart
+d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     
-    var elements = [{x: "Positivity Ratio All Time", y: newData.PerPosRevAT}, {x: "Positivity Ratio Past 30 Days", y: newData.PerPosRev30}]
+    var elements = [
+        {key: "Number Reviews All Time",
+        values: 
+            [
+                {Game: currentData.Name, height: currentData.TNRAT},
+                {Game: newData.Name, height: newData.TNRAT}
+            ]
+        },
+        {key: "Number Reviews Last 30 Days",
+        values: 
+            [
+                {Game: currentData.Name, height: currentData.TNR30},
+                {Game: newData.Name, height: newData.TNR30}
+            ]
+        }
+    ]
+
     console.log(elements)
 
     dimensions2 = {
@@ -275,9 +313,11 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
             top: 50,
             bottom: 50,
             right: 50,
-            left: 50
+            left: 100
         }
     }
+
+    var labels = d3.map(elements, d => d.key)
 
     const tooltip = d3.select("#barchart")
         .append("div")
@@ -295,16 +335,16 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .style("width", dimensions2.width)
         .style("height", dimensions2.height)
         .append("svg")
-            .attr("width", dimensions2.width)
-            .attr("height", dimensions2.height)
-
+            .attr("width", dimensions2.width + dimensions2.margin.left + dimensions2.margin.right)
+            .attr("height", dimensions2.height + dimensions2.margin.left + dimensions2.margin.right)
+    
     var xScale = d3.scaleBand()
-        .domain(["Positivity Ratio All Time", "Positivity Ratio Past 30 Days"]) 
+        .domain(labels) 
         .range([dimensions2.margin.left, dimensions2.width - dimensions2.margin.right])
         .padding(0.2)
 
     var yScale = d3.scaleLinear()
-        .domain([0, 100]) 
+        .domain([0, 50000]) 
         .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
     var xAxisgen = d3.axisBottom().scale(xScale)
@@ -320,19 +360,37 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .style("font-size", "20px")
 
     var yAxis = svg.append("g")
-        .call(yAxisgen.ticks(22))
+        .call(yAxisgen.ticks(20))
         .style("transform", `translateX(${dimensions2.margin.left}px)`)
         .style("font-size", "16px")
 
+    var xSubgroup = d3.scaleBand()
+        .domain(elements[0].values.map(function(d){return d.Game}))
+        .range([0, xScale.bandwidth()])
+        .padding([0.05])
+
+    var colors = d3.map(elements, function(d){
+        return d.Game
+    })
+    
+    var color = d3.scaleOrdinal()
+        .domain(colors)
+        .range(d3.schemeCategory10)
+
     var bars = svg.selectAll("rect")
         .data(elements)
-        .enter()
-        .append("rect")
-        .attr("x", d => xScale(d.x)) //xScale(function(){return d.x}
-        .attr("y", d => yScale(d.y)) //yScale(function(){return d.y}
-        .attr("width", xScale.bandwidth())
-        .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.y))
-        .attr("fill", "orange")//d => color(d.Genre)) FF007F
+        .enter().append("g")
+        .attr("class", "g")
+        .attr("transform",function(d) { return "translate(" + xScale(d.key) + ",0)"; })
+
+        bars.selectAll("rect")
+        .data(function(d){return d.values})
+            .enter().append("rect")
+            .attr("width", xSubgroup.bandwidth())
+            .attr("x", d => xSubgroup(d.Game)) //xScale(function(){return d.x}
+            .attr("y", d => yScale(d.height)) //yScale(function(){return d.y}
+        .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.height))
+        .attr("fill", d => color(d.Game)) //FF007F
         .on('mouseover', function(event, d){
             d3.select(this)
                 .attr("stroke-width", 1)
@@ -358,54 +416,94 @@ d3.csv("SteamGamesLarger.csv").then(function(dataset) {
         .style("text-decoration", "underline")  
         .text("Positivity Ratio of the Game Selected");
 
-    d3.select("#scatterplot").on('mouseout', function() {
+    d3.select("#scatterplot").on('click', function() {
         
         d3.select("#barchart")
             .selectAll("rect")
             .remove();
     
-        elements = [{x: "Positivity Ratio All Time", y: newData.PerPosRevAT}, {x: "Positivity Ratio Past 30 Days", y: newData.PerPosRev30}]
-        console.log(elements)
+        var elements = [
+            {key: "Number Reviews All Time",
+            values: 
+                [
+                    {Game: currentData.Name, height: currentData.TNRAT},
+                    {Game: newData.Name, height: newData.TNRAT}
+                ]
+            },
+            {key: "Number Reviews Last 30 Days",
+            values: 
+                [
+                    {Game: currentData.Name, height: currentData.TNR30},
+                    {Game: newData.Name, height: newData.TNR30}
+                ]
+            }
+        ]
 
-        xScale = d3.scaleBand()
-            .domain(["Positivity Ratio All Time", "Positivity Ratio Past 30 Days"]) 
+        var xScale = d3.scaleBand()
+            .domain(labels) 
             .range([dimensions2.margin.left, dimensions2.width - dimensions2.margin.right])
             .padding(0.2)
 
-        yScale = d3.scaleLinear()
-            .domain([0, 100]) 
+
+        var yScale = d3.scaleLinear()
+            .domain([0, 50000]) 
             .range([dimensions2.height - dimensions2.margin.bottom, dimensions2.margin.top])
 
-        xAxisgen = d3.axisBottom().scale(xScale)
-        yAxisgen = d3.axisLeft().scale(yScale)
+        var xAxisgen = d3.axisBottom().scale(xScale)
+        var yAxisgen = d3.axisLeft().scale(yScale)
+
+        var xSubgroup = d3.scaleBand()
+            .domain(elements[0].values.map(function(d){return d.Game}))
+            .range([0, xScale.bandwidth()])
+            .padding([0.05])
 
         bars = svg.selectAll("rect")
-            .data(elements)
-            .enter()
-            .append("rect")
-            .attr("x", d => xScale(d.x)) //xScale(function(){return d.x}
-            .attr("y", d => yScale(d.y)) //yScale(function(){return d.y}
-            .attr("width", xScale.bandwidth())
-            .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.y))
-            .attr("fill", "orange")//d => color(d.Genre)) FF007F
-            .on('mouseover', function(event, d){
-                d3.select(this)
-                    .attr("stroke-width", 1)
-                    .attr("stroke", "black")
-                tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
-                    .style("left", (event.pageX+30) + "px")
-                    .style("top", (event.pageY-28) + "px")
-                    .style("visibility", "visible")
-            })
-            .on('mouseout', function(event, d){
-                d3.select(this)
-                    .attr("stroke-width", 0)
-                    .attr("stroke", "black")
-                tooltip.transition()
-                    .style("visibility", "hidden")
-            })
+        .data(elements)
+        .enter().append("g")
+        .attr("class", "g")
+        .attr("transform",function(d) { return "translate(" + xScale(d.key) + ",0)"; })
+
+        bars.selectAll("rect")
+        .data(function(d){return d.values})
+            .enter().append("rect")
+            .attr("width", xSubgroup.bandwidth())
+            .attr("x", d => xSubgroup(d.Game)) //xScale(function(){return d.x}
+            .attr("y", d => yScale(d.height)) //yScale(function(){return d.y}
+        .attr("height", d => dimensions2.height - dimensions2.margin.bottom - yScale(d.height))
+        .attr("fill", d => color(d.Game)) //FF007F
+        .on('mouseover', function(event, d){
+            d3.select(this)
+                .attr("stroke-width", 1)
+                .attr("stroke", "black")
+            tooltip.html(`${newData.Name} <br> Total Reviews All Time: ${newData.TNRAT} <br> Rating All Time: ${newData.PerPosRevAT} <br> Last 30 Days: ${newData.TNR30} <br> Rating Last 30 Days: ${newData.PerPosRev30}`)
+                .style("left", (event.pageX+30) + "px")
+                .style("top", (event.pageY-28) + "px")
+                .style("visibility", "visible")
+        })
+        .on('mouseout', function(event, d){
+            d3.select(this)
+                .attr("stroke-width", 0)
+                .attr("stroke", "black")
+            tooltip.transition()
+                .style("visibility", "hidden")
+        })
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 d3.csv("HeatMap.csv").then(function(dataset) {
     
