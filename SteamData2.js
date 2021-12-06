@@ -50,19 +50,19 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
     var gameColor = (genre) => {
         switch(genre) {
             case "Action":
-                return "#C0C0C0";
+                return "#7FFFD4";
                 break;
             case "Adventure":
-                return "#808080"
+                return "#FF7F50"
                 break;
             case "Anime":
-                return "#000000"
+                return "#F6546A"
                 break;
             case "Casual":
                 return "#FF0000"
                 break;
             case "Choose Your Own Adventure":
-                return "#800000"
+                return "#66CDAA"
                 break;
             case "Comedy":
                 return "#FFFF00"
@@ -83,16 +83,16 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 return "#008080"
                 break;
             case "Horror":
-                return "#0000FF"
+                return "#CCFF00"
                 break;
             case "Indie":
-                return "#000080"
+                return "#FF1493"
                 break;
             case "Multiplayer":
                 return "#FF00FF"
                 break;
             case "Mystery":
-                return "#800080"
+                return "#A0DB8E"
                 break;
             case "N/A":
                 return "#F8B195"
@@ -134,12 +134,12 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
                 return "#2F9599"
                 break;
             case "Violent/Crime/War/Zombies":
-                return "#5c3c92"
+                return "#81D8D0"
                 break;
             case "All":
-                return "#123456"
+                return "#00FF7F"
             default:
-                return "#F8B195"
+                return "#00FF7F"
                 break;
         }
     }
@@ -623,8 +623,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
     svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "red")
     svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "blue")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(currentData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(newData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
 
     d3.select("#scatterplot").on('click', function() {
         
@@ -764,8 +764,8 @@ d3.csv("SteamGamesLarger3.csv").then(function(dataset) {
 
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",35).attr("r", 6).style("fill", "blue")
         svg.append("circle").attr("cx",dimensions2.margin.left-50).attr("cy",55).attr("r", 6).style("fill", "red")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(newData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
-        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(currentData.Name).style("font-size", "12px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 37).text(newData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", dimensions2.margin.left-40).attr("y", 57).text(currentData.Name).style("font-size", "11px").attr("alignment-baseline","middle")
     })
 })
 
@@ -806,6 +806,9 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .append("g")
             .attr("transform", `translate(${areaDimensions.margin.left}, ${areaDimensions.margin.top})`);
 
+
+    // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
+    var genreAccessor = d => d.Genre
     var myGroups = d3.map(dataset, function(d){return d.Price})
     var myVars = d3.map(dataset, function(d){return d.Genre})
 
@@ -827,6 +830,7 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .style("font-size", 10)
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()
+            
 
     var myColor = d3.scaleSequential()
         .interpolator(d3.interpolate("white", "black"))
@@ -876,6 +880,8 @@ d3.csv("HeatMap.csv").then(function(dataset) {
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
 
+   
+    // Add title to graph
 
     svg.append("text")
         .attr("x", 0)
